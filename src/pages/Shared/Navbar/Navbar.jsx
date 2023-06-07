@@ -3,10 +3,12 @@ import logo from "../../../assets/logo/Acraft_hub.png";
 import "./Navbar.css";
 import { LuMenu } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
   const location = useLocation();
 
   const isNavLinkActive = (path) => {
@@ -23,31 +25,40 @@ const Navbar = () => {
       <li className={isNavLinkActive("/classes")}>
         <Link>Classes</Link>
       </li>
-      <li className={isNavLinkActive("/dashboard")}>
-        <Link>Dashboard</Link>
-      </li>
+      {user && (
+        <li className={isNavLinkActive("/dashboard")}>
+          <Link>Dashboard</Link>
+        </li>
+      )}
       <div className="flex items-center">
         {/*  Logout Button */}
-        <button className="btn-logout">Log Out</button>
-        <Link to="/login">
-          {" "}
-          {/* Login Button  */}
-          <button className=" bg-[#133795] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-500">
-            Login
-          </button>
-        </Link>
-        <img
-          className="rounded-full"
-          title="User"
-          style={{
-            width: "40px",
-            height: "40px",
-            margin: "10px",
-            border: "2px solid gray",
-          }}
-          src="https://picsum.photos/200/300"
-          alt=""
-        />
+        {user ? (
+          <>
+            <button className="btn-logout">Log Out</button>
+            <img
+              className="rounded-full"
+              title="User"
+              style={{
+                width: "40px",
+                height: "40px",
+                margin: "10px",
+                border: "2px solid gray",
+              }}
+              src="https://picsum.photos/200/300"
+              alt=""
+            />
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              {" "}
+              {/* Login Button  */}
+              <button className=" bg-[#133795] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-500">
+                Login
+              </button>
+            </Link>
+          </>
+        )}
       </div>
     </>
   );
