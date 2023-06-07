@@ -3,10 +3,50 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import loginImage from "../../assets/images/login/login.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+
+  // Sign In functionality
+  const { signIn } = useContext(AuthContext);
+  const handleLogin = (event) => {
+    setError("");
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "Great!!!",
+          text: "You have logged in successfully!",
+          icon: "success",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        if (error.code === "auth/user-not-found") {
+          setError("User Not Found. Invalid email or password!");
+        } else if (error.code === "auth/wrong-password") {
+          setError("Wrong Password. Please try again!");
+        } else {
+          setError(error.message);
+        }
+      });
+  };
 
   // Show password function
   const togglePasswordVisibility = () => {
@@ -32,7 +72,7 @@ const Login = () => {
           <div className="lg:w-1/2">
             <img className="lg:w-full" src={loginImage} alt="" />
           </div>
-          <form className="card-body w-full lg:w-1/2">
+          <form onSubmit={handleLogin} className="card-body w-full lg:w-1/2">
             <h2 className="text-3xl text-center font-bold">Login</h2>
 
             {/* Email Field */}
@@ -75,10 +115,9 @@ const Login = () => {
               </div>
             </div>
 
-            {/* <p className="text-red-600 text-sm m-1 font-semibold">{error}</p> */}
+            <p className="text-red-600 text-sm m-1 font-semibold">{error}</p>
             <div className="form-control mt-6">
               <input
-                // disabled={disabled}
                 type="submit"
                 value="Login"
                 className="btn text-lg bg-[#133795] hover:bg-violet-800 text-white  font-semibold border-none"
