@@ -63,8 +63,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="shadow-md w-full fixed top-0 left-0">
-      <div className="lg:flex items-center justify-between bg-white py-2 lg:px-10 px-7">
+    <div className="shadow-md w-full p-2">
+      <div className="lg:flex items-center justify-between bg-white py-1 lg:px-10 px-7">
         <div>
           <span className="mr-1 pt-2">
             <Link to="/">
@@ -80,7 +80,7 @@ const Navbar = () => {
         </div>
         <ul
           id="navbar"
-          className={`lg:flex items-center gap-6 absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-500 ease-in space-y-4 lg:space-y-0 ${
+          className={`lg:flex items-center gap-6 absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 pb-2 transition-all duration-500 ease-in space-y-4 lg:space-y-0 ${
             open ? "top-40" : "top-[-100px]"
           }`}
         >

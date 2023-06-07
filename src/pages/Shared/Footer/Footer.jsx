@@ -14,14 +14,14 @@ const Footer = () => {
     <footer>
       <div className="footer p-10 bg-base-200 text-base-content">
         <div>
-          <img className="h-32" src={logo} alt="" />
-          <p className="ms-2 text-lg">
-            ArtCraft has been bringing creative peoples dreams to life since
-            2016. <br /> We teach digital art, 2D and 3D graphics, and animation
-            to beginners <br /> from square one. Advanced students can upgrade
-            their skills to further <br /> their future careers in the video
-            game industry.
-          </p>
+          <div>
+            <img className="h-32" src={logo} alt="" />
+            <p className="ms-2 text-lg md:hidden lg:block">
+              ArtCraft has been bringing creative peoples dreams to life since
+              2016. <br /> We teach digital art, 2D and 3D graphics, and
+              animation to beginners from square one.
+            </p>
+          </div>
           <div className="flex justify-center mt-4 md:mt-0">
             <a
               href="https://www.facebook.com"
