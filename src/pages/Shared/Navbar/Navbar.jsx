@@ -63,12 +63,12 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="shadow-md w-full p-2">
+    <div className="w-full shadow">
       <div className="lg:flex items-center justify-between bg-white py-1 lg:px-10 px-7">
         <div>
           <span className="mr-1 pt-2">
             <Link to="/">
-              <img className="h-28" src={logo} alt="" />
+              <img className="h-32" src={logo} alt="" />
             </Link>
           </span>
         </div>

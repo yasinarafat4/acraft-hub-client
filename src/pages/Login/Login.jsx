@@ -29,11 +29,13 @@ const Login = () => {
         }}
       >
         <div className="flex flex-col lg:flex-row card justify-center items-center">
-          <div>
-            <img className=" lg:w-full" src={loginImage} alt="" />
+          <div className="lg:w-1/2">
+            <img className="lg:w-full" src={loginImage} alt="" />
           </div>
-          <form className="card-body">
+          <form className="card-body w-full lg:w-1/2">
             <h2 className="text-3xl text-center font-bold">Login</h2>
+
+            {/* Email Field */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-lg font-semibold">Email</span>
@@ -46,6 +48,8 @@ const Login = () => {
                 required
               />
             </div>
+
+            {/* Password Field */}
             <div className="form-control relative">
               <label className="label">
                 <span className="label-text text-lg font-semibold">
@@ -77,7 +81,7 @@ const Login = () => {
                 // disabled={disabled}
                 type="submit"
                 value="Login"
-                className="btn text-lg bg-[#133795] hover:bg-violet-700 text-white  font-semibold border-none"
+                className="btn text-lg bg-[#133795] hover:bg-violet-800 text-white  font-semibold border-none"
               />
             </div>
             <div className="text-center">
