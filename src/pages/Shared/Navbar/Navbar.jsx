@@ -32,10 +32,7 @@ const Navbar = () => {
         <Link to="/login">
           {" "}
           {/* Login Button  */}
-          <button
-            className="bg-[#133795
-] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-500"
-          >
+          <button className=" bg-[#133795] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-500">
             Login
           </button>
         </Link>
