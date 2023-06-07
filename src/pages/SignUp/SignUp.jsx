@@ -6,6 +6,7 @@ import signUpImage from "../../assets/images/sign-up/sign-up.png";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,15 +16,21 @@ const SignUp = () => {
     register,
     watch,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const password = watch("password");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+
+      updateUserProfile(data.name, data.photoURL).then(() => {
+        reset();
+        Swal.fire("Good job!", "You have successfully signed up!", "success");
+      });
     });
   };
 
@@ -126,7 +133,7 @@ const SignUp = () => {
               />
               {errors.photoURL && errors.photoURL?.type === "required" && (
                 <span className="text-red-700 font-semibold">
-                  Please provide a URL.
+                  Please provide a photo URL.
                 </span>
               )}
               {errors.photoURL?.type === "pattern" && (

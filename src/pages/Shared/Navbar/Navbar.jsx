@@ -51,18 +51,20 @@ const Navbar = () => {
             <button onClick={handleLogOut} className="btn-logout">
               Log Out
             </button>
-            <img
-              className="rounded-full"
-              title="User"
-              style={{
-                width: "40px",
-                height: "40px",
-                margin: "10px",
-                border: "2px solid gray",
-              }}
-              src="https://picsum.photos/200/300"
-              alt=""
-            />
+            {user && (
+              <img
+                className="rounded-full"
+                title={user.displayName || "User"}
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  margin: "10px",
+                  border: "2px solid gray",
+                }}
+                src={user.photoURL || "https://picsum.photos/200/300"}
+                alt=""
+              />
+            )}
           </>
         ) : (
           <>
