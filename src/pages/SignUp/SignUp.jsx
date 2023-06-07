@@ -4,9 +4,23 @@ import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import signUpImage from "../../assets/images/sign-up/sign-up.png";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  // React hook form
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const password = watch("password");
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   // Show password function
   const togglePasswordVisibility = () => {
@@ -16,7 +30,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>ACraft | Login</title>
+        <title>ACraft | Sign Up</title>
       </Helmet>
 
       <div
@@ -36,7 +50,10 @@ const SignUp = () => {
               alt=""
             />
           </div>
-          <form className="card-body w-full lg:w-1/2">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="card-body w-full lg:w-1/2"
+          >
             <h2 className="text-3xl text-center font-bold">Sign Up</h2>
 
             {/* Name Field */}
@@ -46,11 +63,15 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                name="name"
                 placeholder="Your Name"
                 className="input input-bordered"
-                required
+                {...register("name", { required: true })}
               />
+              {errors.name && (
+                <span className="text-red-700 font-semibold">
+                  Please enter your name.
+                </span>
+              )}
             </div>
 
             {/* Email Field */}
@@ -60,11 +81,54 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
-                name="email"
                 placeholder="Type here"
                 className="input input-bordered"
-                required
+                {...register("email", {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
               />
+              {errors.email && (
+                <>
+                  {errors.email.type === "required" && (
+                    <span className="text-red-700 font-semibold">
+                      Email is required!
+                    </span>
+                  )}
+                  {errors.email.type === "pattern" && (
+                    <span className="text-red-700 font-semibold">
+                      You must provide a valid email!
+                    </span>
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Photo Url Field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-lg font-semibold">
+                  Photo URL
+                </span>
+              </label>
+              <input
+                {...register("photoURL", {
+                  required: true,
+                  pattern: /^(ftp|http|https):\/\/[^ "]+$/,
+                })}
+                placeholder="Photo URL"
+                className="input input-bordered"
+              />
+              {errors.photoURL && errors.photoURL?.type === "required" && (
+                <span className="text-red-700 font-semibold">
+                  Please provide a URL.
+                </span>
+              )}
+              {errors.photoURL?.type === "pattern" && (
+                <span className="text-red-700 font-semibold">
+                  Your must provide a valid URL!
+                </span>
+              )}
             </div>
 
             {/* Password Field */}
@@ -76,10 +140,14 @@ const SignUp = () => {
               </label>
               <input
                 type={showPassword ? "text" : "password"}
-                name="password"
                 placeholder="Enter your password"
                 className="input input-bordered"
-                required
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 20,
+                  pattern: /(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                })}
               />
               <div
                 className="absolute top-[70px] right-2 transform -translate-y-1/2 h-8 flex items-center cursor-pointer"
@@ -91,6 +159,31 @@ const SignUp = () => {
                   <FiEye className="text-gray-500" />
                 )}
               </div>
+              {errors.password && (
+                <>
+                  {errors.password?.type === "required" && (
+                    <span className="text-red-700 font-semibold">
+                      Password is required!
+                    </span>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <span className="text-red-700 font-semibold">
+                      Your password must be at least 6 characters long!
+                    </span>
+                  )}
+                  {errors.password?.type === "maxLength" && (
+                    <span className="text-red-700 font-semibold">
+                      Your password must not exceed 20 characters!
+                    </span>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <span className="text-red-700 font-semibold">
+                      Your password must have one uppercase, one lowercase, one
+                      number and one special character!
+                    </span>
+                  )}
+                </>
+              )}
             </div>
 
             {/* Confirm Password Field */}
@@ -102,10 +195,13 @@ const SignUp = () => {
               </label>
               <input
                 type={showPassword ? "text" : "password"}
-                name="password"
+                name="confirmPassword"
                 placeholder="Confirm your password"
                 className="input input-bordered"
-                required
+                {...register("confirmPassword", {
+                  required: true,
+                  validate: (value) => value === password, // Custom validation function
+                })}
               />
               <div
                 className="absolute top-[70px] right-2 transform -translate-y-1/2 h-8 flex items-center cursor-pointer"
@@ -117,9 +213,13 @@ const SignUp = () => {
                   <FiEye className="text-gray-500" />
                 )}
               </div>
+              {errors.confirmPassword && (
+                <span className="text-red-700 font-semibold">
+                  Your password does not match the previous password.
+                </span>
+              )}
             </div>
 
-            {/* <p className="text-red-600 text-sm m-1 font-semibold">{error}</p> */}
             <div className="form-control mt-6">
               <input
                 // disabled={disabled}
