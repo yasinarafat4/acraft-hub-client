@@ -11,6 +11,14 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const location = useLocation();
 
+  // Logout functionality
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
+  // Active Nav Link
   const isNavLinkActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
@@ -30,11 +38,19 @@ const Navbar = () => {
           <Link>Dashboard</Link>
         </li>
       )}
+      <input
+        title="Change Site Mode"
+        type="checkbox"
+        className="toggle"
+        checked
+      />
       <div className="flex items-center">
         {/*  Logout Button */}
         {user ? (
           <>
-            <button className="btn-logout">Log Out</button>
+            <button onClick={handleLogOut} className="btn-logout">
+              Log Out
+            </button>
             <img
               className="rounded-full"
               title="User"
@@ -78,6 +94,7 @@ const Navbar = () => {
         >
           {open ? <MdClose></MdClose> : <LuMenu></LuMenu>}
         </div>
+
         <ul
           id="navbar"
           className={`lg:flex items-center gap-6 absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 pb-2 transition-all duration-500 ease-in space-y-4 lg:space-y-0 ${

@@ -3,8 +3,9 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import signUpImage from "../../assets/images/sign-up/sign-up.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,9 +18,13 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const password = watch("password");
+  const { createUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
-    console.log(data);
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    });
   };
 
   // Show password function
@@ -200,7 +205,7 @@ const SignUp = () => {
                 className="input input-bordered"
                 {...register("confirmPassword", {
                   required: true,
-                  validate: (value) => value === password, // Custom validation function
+                  validate: (value) => value === password,
                 })}
               />
               <div
