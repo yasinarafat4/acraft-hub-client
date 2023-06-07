@@ -24,17 +24,17 @@ const Navbar = () => {
   };
   const navItems = (
     <>
-      <li className={isNavLinkActive("/")}>
+      <li title="Go to Home" className={isNavLinkActive("/")}>
         <Link to="/">Home</Link>
       </li>
-      <li className={isNavLinkActive("/instructors")}>
+      <li title="Instructors" className={isNavLinkActive("/instructors")}>
         <Link to="/instructors">Instructors</Link>
       </li>
-      <li className={isNavLinkActive("/classes")}>
+      <li title="Our Classes" className={isNavLinkActive("/classes")}>
         <Link>Classes</Link>
       </li>
       {user && (
-        <li className={isNavLinkActive("/dashboard")}>
+        <li title="Dashboard" className={isNavLinkActive("/dashboard")}>
           <Link>Dashboard</Link>
         </li>
       )}
@@ -48,7 +48,11 @@ const Navbar = () => {
         {/*  Logout Button */}
         {user ? (
           <>
-            <button onClick={handleLogOut} className="btn-logout">
+            <button
+              title="Logout"
+              onClick={handleLogOut}
+              className="btn-logout"
+            >
               Log Out
             </button>
             {user && (

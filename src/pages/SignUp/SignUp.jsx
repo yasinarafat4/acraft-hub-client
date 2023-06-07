@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import signUpImage from "../../assets/images/sign-up/sign-up.png";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,16 +21,20 @@ const SignUp = () => {
   } = useForm();
   const password = watch("password");
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
 
-      updateUserProfile(data.name, data.photoURL).then(() => {
-        reset();
-        Swal.fire("Good job!", "You have successfully signed up!", "success");
-      });
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          reset();
+          Swal.fire("Good job!", "You have successfully signed up!", "success");
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
     });
   };
 
@@ -244,15 +248,7 @@ const SignUp = () => {
               <div className="flex flex-col w-full border-opacity-50">
                 <div className="divider">Or Sign Up with</div>
               </div>
-              <div className="flex justify-center items-center gap-4 mt-3 mb-3">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline gap-2 flex justify-center items-center">
-                  <FcGoogle
-                    className="rounded-full text-lg"
-                    style={{ backgroundColor: "white" }}
-                  />{" "}
-                  Login with Google{" "}
-                </button>
-              </div>
+              <SocialLogin></SocialLogin>
               <h2 className="font-semibold">
                 Have an account?{" "}
                 <Link to="/login">

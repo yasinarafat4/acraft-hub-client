@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { FcGoogle } from "react-icons/fc";
+
 import { Helmet } from "react-helmet-async";
 import loginImage from "../../assets/images/login/login.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -127,15 +128,7 @@ const Login = () => {
               <div className="flex flex-col w-full border-opacity-50">
                 <div className="divider">Or Sign In with</div>
               </div>
-              <div className="flex justify-center items-center gap-4 mt-3 mb-3">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline gap-2 flex justify-center items-center">
-                  <FcGoogle
-                    className="rounded-full text-lg"
-                    style={{ backgroundColor: "white" }}
-                  />{" "}
-                  Login with Google{" "}
-                </button>
-              </div>
+              <SocialLogin></SocialLogin>
               <h2 className="font-semibold">
                 Have not any account?{" "}
                 <Link to="/signUp">
