@@ -1,15 +1,30 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/logo/Acraft_hub.png";
 import "./Navbar.css";
-import { LuMenu } from "react-icons/lu";
-import { MdClose } from "react-icons/md";
-import { useState, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaMoon } from "react-icons/fa";
+import { BsSun } from "react-icons/bs";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+  const [theme, setTheme] = useState("light");
+
+  // Dark Or Light Mood functionality
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+    setIsDarkMode(!isDarkMode);
+  };
 
   // Logout functionality
   const handleLogOut = () => {
@@ -38,13 +53,57 @@ const Navbar = () => {
           <Link>Dashboard</Link>
         </li>
       )}
-      <input
-        title="Change Site Mode"
-        type="checkbox"
-        className="toggle"
-        checked
-      />
-      <div className="flex items-center">
+    </>
+  );
+  return (
+    <div className="navbar px-10">
+      <div className="navbar-start md:space-x-2 md:ps-2">
+        <div className="dropdown">
+          <label tabIndex={0} className="lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="3"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content space-y-4 p-2 shadow bg-white rounded-box w-52 text-base font-semibold"
+          >
+            {navItems}
+          </ul>
+        </div>
+        <Link to="/">
+          <img className="h-28 md:h-36" src={logo} alt="" />
+        </Link>
+      </div>
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu menu-horizontal px-1  font-bold gap-2 text-xl">
+          {navItems}
+        </ul>
+      </div>
+      <div className="navbar-end flex gap-1 md:gap-2 font-[600] text-sm xl:text-lg items-center">
+        <div className="cursor-pointer">
+          {isDarkMode ? (
+            <div className="text-xl" onClick={handleThemeSwitch}>
+              <BsSun title="Make Light" />
+            </div>
+          ) : (
+            <div className="text-xl" onClick={handleThemeSwitch}>
+              <FaMoon title="Make Dark" />
+            </div>
+          )}
+        </div>
+
         {/*  Logout Button */}
         {user ? (
           <>
@@ -81,34 +140,6 @@ const Navbar = () => {
             </Link>
           </>
         )}
-      </div>
-    </>
-  );
-  return (
-    <div className="w-full shadow">
-      <div className="lg:flex items-center justify-between bg-white py-1 lg:px-10 px-7">
-        <div>
-          <span className="mr-1 pt-2">
-            <Link to="/">
-              <img className="h-32" src={logo} alt="" />
-            </Link>
-          </span>
-        </div>
-        <div
-          onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer lg:hidden"
-        >
-          {open ? <MdClose></MdClose> : <LuMenu></LuMenu>}
-        </div>
-
-        <ul
-          id="navbar"
-          className={`lg:flex items-center gap-6 absolute lg:static bg-white lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 pb-2 transition-all duration-500 ease-in space-y-4 lg:space-y-0 ${
-            open ? "top-40" : "top-[-100px]"
-          }`}
-        >
-          {navItems}
-        </ul>
       </div>
     </div>
   );
