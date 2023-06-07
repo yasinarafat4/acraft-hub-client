@@ -1,0 +1,31 @@
+.btn-logout {
+  padding: 8px 12px;
+  color: #ffffff;
+  background-color: #f14e4c;
+  border-radius: 5px;
+}
+
+.btn-logout:hover {
+  padding: 8px 12px;
+  color: #ffffff;
+  background-color: #eb3625;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+#navbar li {
+  font-weight: 700;
+  font-size: 18px; /* Default font size for large devices */
+}
+
+#navbar li a:hover {
+  color: #133795;
+  transition-duration: 0.4s;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 800px) {
+  #navbar li {
+    font-size: 16px; /* Font size for small devices */
+  }
+}
