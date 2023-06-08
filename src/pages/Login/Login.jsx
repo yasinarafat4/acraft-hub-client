@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 import { Helmet } from "react-helmet-async";
@@ -14,6 +14,11 @@ const Login = () => {
 
   // Sign In functionality
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   const handleLogin = (event) => {
     setError("");
     event.preventDefault();
@@ -37,6 +42,7 @@ const Login = () => {
           },
         });
         form.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         if (error.code === "auth/user-not-found") {

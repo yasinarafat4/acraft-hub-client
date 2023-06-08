@@ -11,8 +11,9 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
   const [theme, setTheme] = useState("light");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Dark Or Light Mood functionality
+  // Dark Or Light Mood effect
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -21,6 +22,7 @@ const Navbar = () => {
     }
   }, [theme]);
 
+  // Dark Or Light Mood handler
   const handleThemeSwitch = () => {
     setTheme(theme === "dark" ? "light" : "dark");
     setIsDarkMode(!isDarkMode);
@@ -33,10 +35,17 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
 
+  // Menus toggle functionality
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   // Active Nav Link
   const isNavLinkActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
+
+  // Nav Item
   const navItems = (
     <>
       <li title="Go to Home" className={isNavLinkActive("/")}>
@@ -50,37 +59,60 @@ const Navbar = () => {
       </li>
       {user && (
         <li title="Dashboard" className={isNavLinkActive("/dashboard")}>
-          <Link>Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
       )}
     </>
   );
   return (
-    <div className="navbar px-10">
+    <div className="navbar px-3">
       <div className="navbar-start md:space-x-2 md:ps-2">
         <div className="dropdown">
-          <label tabIndex={0} className="lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="3"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
+          <label
             tabIndex={0}
-            className="menu menu-compact dropdown-content space-y-4 p-2 shadow bg-white rounded-box w-52 text-base font-semibold"
+            className={`lg:hidden ${isMenuOpen ? "cross-icon" : ""}`}
+            onClick={toggleMenu}
           >
-            {navItems}
-          </ul>
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="3"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="3"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </label>
+          {isMenuOpen && (
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content space-y-4 p-2 shadow bg-white rounded-box w-52 text-lg text-[#133795] font-semibold"
+            >
+              {navItems}
+            </ul>
+          )}
         </div>
         <Link to="/">
           <img className="h-28 md:h-36" src={logo} alt="" />
