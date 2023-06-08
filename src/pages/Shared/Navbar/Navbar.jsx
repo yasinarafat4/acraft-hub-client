@@ -55,7 +55,7 @@ const Navbar = () => {
         <Link to="/instructors">Instructors</Link>
       </li>
       <li title="Our Classes" className={isNavLinkActive("/classes")}>
-        <Link>Classes</Link>
+        <Link to="/classes">Classes</Link>
       </li>
       {user && (
         <li title="Dashboard" className={isNavLinkActive("/dashboard")}>

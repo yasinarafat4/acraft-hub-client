@@ -3,17 +3,17 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 
 import { Helmet } from "react-helmet-async";
 import loginImage from "../../assets/images/login/login.png";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   // Sign In functionality
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 

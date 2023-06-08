@@ -2,11 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Helmet } from "react-helmet-async";
 import signUpImage from "../../assets/images/sign-up/sign-up.png";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../providers/AuthProvider";
+
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +21,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const password = watch("password");
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
