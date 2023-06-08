@@ -50,16 +50,8 @@ const SignUp = () => {
         <title>ACraft | Sign Up</title>
       </Helmet>
 
-      <div
-        className="hero-content overflow-auto"
-        style={{
-          boxShadow: "10px 10px 10px 10px rgba(0, 0, 0, 0.25)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div className="flex flex-col lg:flex-row card justify-center items-center">
+      <div className="hero-content overflow-auto">
+        <div className="flex flex-col lg:flex-row card justify-center items-center my-40">
           <div className="lg:w-1/2">
             <img
               className="w-9/12 lg:w-full mx-auto"

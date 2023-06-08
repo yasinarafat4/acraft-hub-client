@@ -11,8 +11,7 @@ import img5 from "../../../assets/images/banner/banner5.jpg";
 
 const Banner = () => {
   const imageStyles = {
-    maxHeight: "750px",
-    maxWidth: "1350px",
+    maxHeight: "850px",
   };
 
   return (

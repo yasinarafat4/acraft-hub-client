@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "1",
+    "name": "Painting Workshop",
+    "image": "https://i.ibb.co/ynwHJnp/painting.png",
+    "instructor": "John Smith",
+    "availableSeats": 15,
+    "price": 50,
+    "category": "popular"
+  },
+  {
+    "_id": "2",
+    "name": "Sculpture Masterclass",
+    "image": "https://i.ibb.co/sK5nYzj/sculpture.png",
+    "instructor": "Emily Johnson",
+    "availableSeats": 17,
+    "price": 70,
+    "category": "popular"
+  },
+  {
+    "_id": "3",
+    "name": "Knitting Basics",
+    "image": "https://i.ibb.co/ZhvZNKR/knitting.png",
+    "instructor": "Michael Davis",
+    "availableSeats": 20,
+    "price": 40,
+    "category": "popular"
+  },
+  {
+    "_id": "4",
+    "name": "Calligraphy Workshop",
+    "image": "https://i.ibb.co/jDnfrZ1/calligraphy.png",
+    "instructor": "Sarah Wilson",
+    "availableSeats": 12,
+    "price": 60,
+    "category": "other"
+  },
+  {
+    "_id": "5",
+    "name": "Pottery Class",
+    "image": "https://i.ibb.co/Tmr8CW7/pottery.png",
+    "instructor": "Daniel Thompson",
+    "availableSeats": 8,
+    "price": 80,
+    "category": "other"
+  },
+  {
+    "_id": "6",
+    "name": "Paper Craft Techniques",
+    "image": "https://i.ibb.co/NFqQXkS/paper-craft.png",
+    "instructor": "Olivia Clark",
+    "availableSeats": 18,
+    "price": 45,
+    "category": "popular"
+  },
+  {
+    "_id": "7",
+    "name": "Glass Blowing Workshop",
+    "image": "https://i.ibb.co/t4wFhqv/glass-blowing.png",
+    "instructor": "Thomas Anderson",
+    "availableSeats": 14,
+    "price": 75,
+    "category": "popular"
+  },
+  {
+    "_id": "8",
+    "name": "Ceramic Painting",
+    "image": "https://i.ibb.co/pdwQvNC/ceramic-painting.png",
+    "instructor": "Sophia Lee",
+    "availableSeats": 10,
+    "price": 55,
+    "category": "other"
+  },
+  {
+    "_id": "9",
+    "name": "Jewelry Making",
+    "image": "https://i.ibb.co/vdBJvJN/jewelry-making.png",
+    "instructor": "Liam Roberts",
+    "availableSeats": 21,
+    "price": 65,
+    "category": "popular"
+  }
+]

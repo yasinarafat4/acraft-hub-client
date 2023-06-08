@@ -16,9 +16,9 @@ const Main = () => {
     return <Spinner />;
   }
   return (
-    <div className=" bg-white dark:bg-slate-700 dark:text-white">
+    <div className="bg-white dark:bg-slate-700 dark:text-white">
       <Navbar></Navbar>
-      <div className="max-w-screen-2xl mx-auto min-h-[calc(100vh-300px)]">
+      <div className="min-h-[calc(100vh-300px)]">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

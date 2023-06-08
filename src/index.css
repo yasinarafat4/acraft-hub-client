@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .active {
-  @apply text-violet-600 transition-colors duration-200 hover:text-violet-800 underline;
+  @apply text-slate-300 transition-colors duration-200 underline;
 }
