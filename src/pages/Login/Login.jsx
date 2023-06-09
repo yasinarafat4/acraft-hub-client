@@ -77,7 +77,9 @@ const Login = () => {
             {/* Email Field */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-lg font-semibold">Email</span>
+                <span className="label-text text-lg font-semibold dark:text-white">
+                  Email
+                </span>
               </label>
               <input
                 type="email"
@@ -91,7 +93,7 @@ const Login = () => {
             {/* Password Field */}
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text text-lg font-semibold">
+                <span className="label-text text-lg font-semibold dark:text-white">
                   Password
                 </span>
               </label>

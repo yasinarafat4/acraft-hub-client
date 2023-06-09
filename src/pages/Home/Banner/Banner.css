@@ -34,20 +34,22 @@
   font-weight: 600;
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 600px) {
   .btn-classes {
     color: #f14e4c;
-    padding: 4px 6px;
+    padding: 4px 5px;
     border: 2px solid #e72e2e;
     border-radius: 4px;
+    font-size: 12px;
     font-weight: 600;
   }
 
   .btn-classes:hover {
-    padding: 4px 6px;
+    padding: 4px 5px;
     color: #ffffff;
     background-color: #f14e4c;
     border-radius: 4px;
+    font-size: 12px;
     transition: 0.3s;
     font-weight: 600;
   }
@@ -55,16 +57,18 @@
   .btn-instructors {
     background-color: #133795;
     color: white;
-    padding: 4px 6px;
+    padding: 4px 5px;
     border-radius: 4px;
+    font-size: 12px;
     border: 2px solid #0b2b7a;
     font-weight: 600;
   }
   .btn-instructors:hover {
     background-color: #335cc5;
     color: white;
-    padding: 4px 6px;
+    padding: 4px 5px;
     border-radius: 4px;
+    font-size: 12px;
     border: 2px solid #0b2b7a;
     transition: 0.3s;
     font-weight: 600;

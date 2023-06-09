@@ -65,7 +65,7 @@ const Navbar = () => {
           <label tabIndex={0} className=" lg:hidden cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-7 w-7"
+              className="h-5 w-5 md:h-7 md:w-7"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -86,7 +86,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <img className="h-28 md:h-32" src={logo} alt="" />
+          <img className="h-16 md:h-32" src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
@@ -137,7 +137,7 @@ const Navbar = () => {
             <Link to="/login">
               {" "}
               {/* Login Button  */}
-              <button className=" bg-[#133795] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline duration-500">
+              <button className=" bg-[#133795] hover:bg-violet-700 text-white font-bold py-1 px-2 md:py-2 md:px-4 rounded focus:outline-none focus:shadow-outline duration-500">
                 Login
               </button>
             </Link>

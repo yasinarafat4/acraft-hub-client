@@ -21,10 +21,10 @@ const Banner = () => {
         <div className="relative">
           <img src={img1} alt="Banner 1" style={imageStyles} />
           <div className="absolute left-0 top-0 inset-0 text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] flex flex-col justify-center w-3/4 md:w-2/3 text-start ps-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+            <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl mb-1 md:mb-4 mt-16 md:mt-0">
               Art Craft Hub
             </h2>
-            <p className="md:text-lg mb-6">
+            <p className="text-sm md:text-lg mb-3 md:mb-6">
               Explore a collection of beautiful artworks and crafts with us.
             </p>
             <div className="space-x-4">
@@ -43,10 +43,10 @@ const Banner = () => {
         <div className="relative">
           <img src={img2} alt="Banner 1" style={imageStyles} />
           <div className="absolute left-0 top-0 inset-0 text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] flex flex-col justify-center w-3/4 md:w-2/3 text-start ps-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+            <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl mb-1 md:mb-4 mt-16 md:mt-0">
               Unleash Your Creativity
             </h2>
-            <p className="md:text-lg mb-6">
+            <p className="text-sm md:text-lg mb-3 md:mb-6">
               Discover inspiration and ignite your imagination with our diverse
               range of art and craft creations.
             </p>
@@ -66,10 +66,10 @@ const Banner = () => {
         <div className="relative">
           <img src={img3} alt="Banner 1" style={imageStyles} />
           <div className="absolute left-0 top-0 inset-0 text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] flex flex-col justify-center w-3/4 md:w-2/3 lg:w-3/4 text-start ps-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+            <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl mb-1 md:mb-4 mt-16 md:mt-0">
               Elevate Your Space
             </h2>
-            <p className="md:text-lg mb-6">
+            <p className="text-sm md:text-lg mb-3 md:mb-6">
               Enhance your surroundings with exquisite artworks and handcrafted
               decor that reflect your unique style.
             </p>
@@ -89,10 +89,10 @@ const Banner = () => {
         <div className="relative">
           <img src={img4} alt="Banner 1" style={imageStyles} />
           <div className="absolute left-0 top-0 inset-0 text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] flex flex-col justify-center w-3/4 md:w-2/3 lg:w-3/4 text-start ps-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+            <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl mb-1 md:mb-4 mt-16 md:mt-0">
               Celebrate Artistry
             </h2>
-            <p className="md:text-lg mb-6">
+            <p className="text-sm md:text-lg mb-3 md:mb-6">
               Join us in celebrating the creativity and talent of artists from
               around the world through our curated collection.
             </p>
@@ -112,10 +112,10 @@ const Banner = () => {
         <div className="relative">
           <img src={img5} alt="Banner 1" style={imageStyles} />
           <div className="absolute left-0 top-0 inset-0 text-white bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] flex flex-col justify-center w-3/4 md:w-2/3 lg:w-3/4 text-start ps-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+            <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl mb-1 md:mb-4 mt-16 md:mt-0">
               Art for Passion
             </h2>
-            <p className="md:text-lg mb-6">
+            <p className="text-sm md:text-lg mb-3 md:mb-6">
               Find art and crafts that resonate with your passions and
               interests, and add a touch of creativity to your life.
             </p>
