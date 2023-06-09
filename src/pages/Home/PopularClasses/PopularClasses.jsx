@@ -3,8 +3,7 @@ import ClassCard from "../../Shared/ClassCard/ClassCard";
 
 const PopularClasses = () => {
   const [classes] = useClasses();
-  // console.log(classes);
-  // const popular = classes.filter((cls) => cls.category === "popular");
+  const popularClasses = classes.slice(0, 6);
 
   return (
     <div>
@@ -17,7 +16,7 @@ const PopularClasses = () => {
         and artistic expression.
       </p>
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 mx-6 my-6">
-        {classes.map((cls) => (
+        {popularClasses.map((cls) => (
           <ClassCard key={cls._id} cls={cls} />
         ))}
       </div>
