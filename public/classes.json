@@ -6,7 +6,8 @@
     "instructor": "John Smith",
     "availableSeats": 15,
     "price": 50,
-    "category": "popular"
+    "category": "popular",
+    "students": 25
   },
   {
     "_id": "2",
@@ -15,7 +16,8 @@
     "instructor": "Emily Johnson",
     "availableSeats": 17,
     "price": 70,
-    "category": "popular"
+    "category": "popular",
+    "students": 14
   },
   {
     "_id": "3",
@@ -24,7 +26,8 @@
     "instructor": "Michael Davis",
     "availableSeats": 20,
     "price": 40,
-    "category": "popular"
+    "category": "popular",
+    "students": 16
   },
   {
     "_id": "4",
@@ -33,7 +36,8 @@
     "instructor": "Sarah Wilson",
     "availableSeats": 12,
     "price": 60,
-    "category": "other"
+    "category": "other",
+    "students": 13
   },
   {
     "_id": "5",
@@ -42,7 +46,8 @@
     "instructor": "Daniel Thompson",
     "availableSeats": 8,
     "price": 80,
-    "category": "other"
+    "category": "other",
+    "students": 11
   },
   {
     "_id": "6",
@@ -51,7 +56,8 @@
     "instructor": "Olivia Clark",
     "availableSeats": 18,
     "price": 45,
-    "category": "popular"
+    "category": "popular",
+    "students": 20
   },
   {
     "_id": "7",
@@ -60,7 +66,8 @@
     "instructor": "Thomas Anderson",
     "availableSeats": 14,
     "price": 75,
-    "category": "popular"
+    "category": "popular",
+    "students": 24
   },
   {
     "_id": "8",
@@ -69,7 +76,8 @@
     "instructor": "Sophia Lee",
     "availableSeats": 10,
     "price": 55,
-    "category": "other"
+    "category": "other",
+    "students": 14
   },
   {
     "_id": "9",
@@ -78,6 +86,7 @@
     "instructor": "Liam Roberts",
     "availableSeats": 21,
     "price": 65,
-    "category": "popular"
+    "category": "popular",
+    "students": 18
   }
 ]
