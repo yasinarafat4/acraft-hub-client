@@ -1,6 +1,5 @@
 [
   {
-    "_id": "1",
     "name": "Painting Workshop",
     "image": "https://i.ibb.co/ynwHJnp/painting.png",
     "instructor": "John Smith",
@@ -9,7 +8,6 @@
     "students": 25
   },
   {
-    "_id": "2",
     "name": "Sculpture Masterclass",
     "image": "https://i.ibb.co/sK5nYzj/sculpture.png",
     "instructor": "Emily Johnson",
@@ -18,7 +16,6 @@
     "students": 14
   },
   {
-    "_id": "3",
     "name": "Knitting Basics",
     "image": "https://i.ibb.co/ZhvZNKR/knitting.png",
     "instructor": "Michael Davis",
@@ -27,7 +24,6 @@
     "students": 16
   },
   {
-    "_id": "4",
     "name": "Calligraphy Workshop",
     "image": "https://i.ibb.co/jDnfrZ1/calligraphy.png",
     "instructor": "Sarah Wilson",
@@ -36,7 +32,6 @@
     "students": 13
   },
   {
-    "_id": "5",
     "name": "Pottery Class",
     "image": "https://i.ibb.co/Tmr8CW7/pottery.png",
     "instructor": "Daniel Thompson",
@@ -45,7 +40,6 @@
     "students": 11
   },
   {
-    "_id": "6",
     "name": "Paper Craft Techniques",
     "image": "https://i.ibb.co/NFqQXkS/paper-craft.png",
     "instructor": "Olivia Clark",
@@ -54,7 +48,6 @@
     "students": 20
   },
   {
-    "_id": "7",
     "name": "Glass Blowing Workshop",
     "image": "https://i.ibb.co/t4wFhqv/glass-blowing.png",
     "instructor": "Thomas Anderson",
@@ -63,7 +56,6 @@
     "students": 24
   },
   {
-    "_id": "8",
     "name": "Ceramic Painting",
     "image": "https://i.ibb.co/pdwQvNC/ceramic-painting.png",
     "instructor": "Sophia Lee",
@@ -72,7 +64,6 @@
     "students": 14
   },
   {
-    "_id": "9",
     "name": "Jewelry Making",
     "image": "https://i.ibb.co/vdBJvJN/jewelry-making.png",
     "instructor": "Liam Roberts",
