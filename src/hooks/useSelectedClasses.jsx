@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 
 const useSelectedClasses = () => {
   const { user } = useAuth();
-  const { refetch, data: selectedClasses = [] } = useQuery({
+  const { refetch, data: selectedClass = [] } = useQuery({
     queryKey: ["selectedClasses", user?.email],
     queryFn: async () => {
       const response = await fetch(
@@ -12,7 +12,7 @@ const useSelectedClasses = () => {
       return response.json();
     },
   });
-  return [selectedClasses, refetch];
+  return [selectedClass, refetch];
 };
 
 export default useSelectedClasses;

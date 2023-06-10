@@ -1,11 +1,35 @@
 import { Helmet } from "react-helmet-async";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import { FaRegTrashAlt, FaRegCreditCard } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MySelectedClasses = () => {
-  const [selectedClasses, refetch] = useSelectedClasses();
+  const [selectedClass, refetch] = useSelectedClasses();
+
   const handleDelete = (cls) => {
     console.log(cls);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/selectedClasses/${cls._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Class has been deleted.", "success");
+            }
+          });
+      }
+    });
   };
   return (
     <div className="w-11/12 overflow-y-auto">
@@ -29,7 +53,7 @@ const MySelectedClasses = () => {
             </tr>
           </thead>
           <tbody>
-            {selectedClasses.map((cls, index) => (
+            {selectedClass.map((cls, index) => (
               <tr key={cls._id}>
                 <td>{index + 1}</td>
                 <td>
