@@ -2,7 +2,7 @@ import { Zoom } from "react-awesome-reveal";
 
 const InstructorCard = ({ instructor }) => {
   return (
-    <Zoom duration={1500}>
+    <Zoom duration={1500} triggerOnce>
       <div className="max-w-md mx-auto rounded overflow-hidden shadow-lg">
         <img
           className="w-full h-auto object-cover"
@@ -14,7 +14,7 @@ const InstructorCard = ({ instructor }) => {
           <p className="text-gray-700 text-base mb-2 dark:text-white">
             <span className="font-semibold">Email:</span> {instructor.email}
           </p>
-          <p className="text-base dark:text-white">
+          <div className="text-base dark:text-white">
             <span className="font-semibold">Classes:</span>
             <ol className="list-decimal pl-4">
               {instructor.classes.map((className, index) => (
@@ -23,7 +23,7 @@ const InstructorCard = ({ instructor }) => {
                 </li>
               ))}
             </ol>
-          </p>
+          </div>
         </div>
       </div>
     </Zoom>

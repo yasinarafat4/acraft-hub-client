@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { FaMoon } from "react-icons/fa";
 import { BsSun } from "react-icons/bs";
+import { BiSelectMultiple } from "react-icons/bi";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -45,17 +46,25 @@ const Navbar = () => {
       <li title="Go to Home" className={isNavLinkActive("/")}>
         <Link to="/">Home</Link>
       </li>
+      {user && (
+        <li title="Dashboard" className={isNavLinkActive("/dashboard")}>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
       <li title="Instructors" className={isNavLinkActive("/instructors")}>
         <Link to="/instructors">Instructors</Link>
       </li>
       <li title="Our Classes" className={isNavLinkActive("/classes")}>
         <Link to="/classes">Classes</Link>
       </li>
-      {user && (
-        <li title="Dashboard" className={isNavLinkActive("/dashboard")}>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-      )}
+      <li>
+        <Link to="/">
+          <button className="btn btn-sm">
+            <BiSelectMultiple className="text-2xl text-green-600" />
+            <div className="badge badge-primary">+0</div>
+          </button>
+        </Link>
+      </li>
     </>
   );
   return (
