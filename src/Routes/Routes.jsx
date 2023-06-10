@@ -44,8 +44,13 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
+      // Student Routes
       {
         path: "/dashboard/mySelectedClasses",
         element: <MySelectedClasses></MySelectedClasses>,
@@ -58,6 +63,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/paymentHistory",
         element: <PaymentHistory></PaymentHistory>,
       },
+
+      // Admin Routes
+      // Instructor Routes
     ],
   },
 ]);

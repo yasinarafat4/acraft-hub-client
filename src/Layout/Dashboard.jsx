@@ -5,6 +5,7 @@ import { BiSelectMultiple } from "react-icons/bi";
 import { FaUserCheck, FaHome } from "react-icons/fa";
 import { GiWallet, GiTeacher } from "react-icons/gi";
 import { SiGoogleclassroom } from "react-icons/si";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -14,6 +15,9 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>ACraft | Dashboard</title>
+      </Helmet>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center bg-slate-300 min-h-[calc(100vh-50px)]">
