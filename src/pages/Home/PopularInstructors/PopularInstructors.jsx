@@ -7,13 +7,14 @@ const PopularInstructors = () => {
 
   return (
     <div>
-      <h2 className="text-xl md:text-3xl font-semibold md:py-4 mt-10 text-center">
+      <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold md:py-4 xl:my-5 mt-10 xl:mt-14 text-center">
         Popular Instructors
       </h2>
-      <p className="text-center mx-2 mb-4">
-        Discover our most popular art classes, where creativity comes to life!
-        Join our talented instructors and explore a world of colors, techniques,
-        and artistic expression.
+      <p className="text-center text-sm lg:text-lg  xl:text-xl mx-2 mb-4">
+        Embark on a transformative artistic journey led by renowned instructors
+        who ignite creativity, nurture talent, and guide you towards achieving
+        artistic mastery. Unlock your boundless creativity through the lessons
+        offered by our trusted experts in the field.
       </p>
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 mx-6 my-6">
         {popularInstructors.map((instructor) => (
