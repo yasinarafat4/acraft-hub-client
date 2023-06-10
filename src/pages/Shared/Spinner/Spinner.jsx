@@ -11,7 +11,7 @@ const Spinner = () => {
       items-center 
     "
     >
-      <FadeLoader size={300} color="red" />
+      <FadeLoader size={300} color="red" loading={true} />
     </div>
   );
 };

@@ -1,19 +1,21 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // navigate(from, { replace: true });
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));
   };

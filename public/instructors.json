@@ -1,0 +1,74 @@
+[
+  {
+    "image": "https://i.ibb.co/y0S83Y8/john-smith.png",
+    "name": "John Smith",
+    "email": "johnacraft@gmail.com",
+    "classes": ["Painting Workshop", "Glass Blowing Workshop"]
+  },
+  {
+    "image": "https://i.ibb.co/MBrJLRv/emily-johnson.png",
+    "name": "Emily Johnson",
+    "email": "emilyacraft@gmail.com",
+    "classes": ["Sculpture Masterclass", "Ceramic Painting"]
+  },
+  {
+    "image": "https://i.ibb.co/4KszkMX/michael-davis.png",
+    "name": "Michael Davis",
+    "email": "michaelacraft@gmail.com",
+    "classes": ["Calligraphy Workshop", "Paper Craft Techniques"]
+  },
+  {
+    "image": "https://i.ibb.co/fHxkdR7/sarah-wilson.png",
+    "name": "Sarah Wilson",
+    "email": "sarahacraft@gmail.com",
+    "classes": ["Knitting Basics", "Jewelry Making"]
+  },
+  {
+    "image": "https://i.ibb.co/WV6yThS/daniel-thompson.png",
+    "name": "Daniel Thompson",
+    "email": "danielacraft@gmail.com",
+    "classes": ["Pottery Class", "Sculpture Masterclass"]
+  },
+  {
+    "image": "https://i.ibb.co/Hh6qRgF/olivia-clark.png",
+    "name": "Olivia Clark",
+    "email": "oliviaacraft@gmail.com",
+    "classes": ["Paper Craft Techniques", "Jewelry Making"]
+  },
+  {
+    "image": "https://i.ibb.co/8jNbyGg/thomas-anderson.png",
+    "name": "Thomas Anderson",
+    "email": "thomasacraft@gmail.com",
+    "classes": ["Glass Blowing Workshop"]
+  },
+  {
+    "image": "https://i.ibb.co/fCLVcnp/sophia-lee.png",
+    "name": "Sophia Lee",
+    "email": "sophiaacraft@gmail.com",
+    "classes": ["Jewelry Making"]
+  },
+  {
+    "image": "https://i.ibb.co/XDrvJJT/shana-roberts.png",
+    "name": "Shana Roberts",
+    "email": "shanacraft@gmail.com",
+    "classes": ["Ceramic Painting"]
+  },
+  {
+    "image": "https://i.ibb.co/DK92TM4/lu-young.png",
+    "name": "Lu Young",
+    "email": "luacraft@gmail.com",
+    "classes": ["Sculpture Masterclass"]
+  },
+  {
+    "image": "https://i.ibb.co/wRRRRTk/harris-wilson.png",
+    "name": "Harris Wilson",
+    "email": "harrisacraft@gmail.com",
+    "classes": ["Paper Craft Techniques"]
+  },
+  {
+    "image": "https://i.ibb.co/G9mq3Z1/ava-miller.png",
+    "name": "Ava Miller",
+    "email": "avaacraft@gmail.com",
+    "classes": ["Painting Workshop"]
+  }
+]
