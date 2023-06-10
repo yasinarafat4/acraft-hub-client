@@ -6,12 +6,14 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { FaMoon } from "react-icons/fa";
 import { BsSun } from "react-icons/bs";
 import { BiSelectMultiple } from "react-icons/bi";
+import useSelectedClasses from "../../../hooks/useSelectedClasses";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const location = useLocation();
   const [theme, setTheme] = useState("light");
+  const [selectedClasses] = useSelectedClasses();
+  const location = useLocation();
 
   // Dark Or Light Mood effect
   useEffect(() => {
@@ -61,7 +63,9 @@ const Navbar = () => {
         <Link to="/">
           <button className="btn btn-sm">
             <BiSelectMultiple className="text-2xl text-green-600" />
-            <div className="badge badge-primary">+0</div>
+            <div className="badge badge-primary">
+              +{selectedClasses?.length || 0}
+            </div>
           </button>
         </Link>
       </li>

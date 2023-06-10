@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useInstructors from "../../hooks/useInstructors";
 import Cover from "../Shared/Cover/Cover";
 import InstructorCard from "../Shared/InstructorCard/InstructorCard";
+import instructorsCover from "../../assets/images/cover/instructors-cover.png";
 
 const Instructors = () => {
   const [instructors] = useInstructors();
@@ -12,7 +13,7 @@ const Instructors = () => {
         <title>ACraft | Instructors</title>
       </Helmet>
       <Cover
-        // bgImg={classesCover}
+        bgImg={instructorsCover}
         title={"All Instructors"}
         text={"Would you like to see our best and experienced Instructors?"}
       ></Cover>

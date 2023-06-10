@@ -2,10 +2,12 @@ import { Slide } from "react-awesome-reveal";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useSelectedClasses from "../../../hooks/useSelectedClasses";
 
 const ClassCard = ({ cls }) => {
   const { _id, image, name, instructor, availableSeats, students, price } = cls;
   const { user } = useAuth();
+  const [, refetch] = useSelectedClasses();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,6 +35,7 @@ const ClassCard = ({ cls }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            refetch();
             Swal.fire("Good job!", "Class selected successfully", "success");
           }
         });
@@ -51,6 +54,10 @@ const ClassCard = ({ cls }) => {
       });
     }
   };
+
+  // TODO: select button will disabled if Available seats are 0 and Logged in as admin/instructor
+  // const isUserLoggedIn = user && user.email;
+  // const isSelectButtonDisabled = !isUserLoggedIn;
 
   return (
     <Slide duration={1500}>
@@ -77,7 +84,8 @@ const ClassCard = ({ cls }) => {
         <div className="flex justify-between items-center px-6 pb-2 dark:text-white">
           <button
             onClick={() => handleSelectClass(cls)}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            // disabled={isSelectButtonDisabled}
           >
             Select
           </button>
