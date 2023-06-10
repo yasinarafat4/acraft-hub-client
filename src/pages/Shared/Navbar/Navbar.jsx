@@ -49,8 +49,8 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       {user && (
-        <li title="Dashboard" className={isNavLinkActive("/dashboard")}>
-          <Link to="/dashboard">Dashboard</Link>
+        <li title="Dashboard">
+          <Link to="/dashboard/mySelectedClasses">Dashboard</Link>
         </li>
       )}
       <li title="Instructors" className={isNavLinkActive("/instructors")}>
@@ -60,7 +60,7 @@ const Navbar = () => {
         <Link to="/classes">Classes</Link>
       </li>
       <li>
-        <Link to="/">
+        <Link to="/dashboard/mySelectedClasses">
           <button className="btn btn-sm">
             <BiSelectMultiple className="text-2xl text-green-600" />
             <div className="badge badge-primary">

@@ -5,3 +5,10 @@
 .active {
   @apply text-slate-300 transition-colors duration-200 underline;
 }
+.defaultDash {
+  @apply flex items-center gap-2 text-white;
+}
+
+.activeDash {
+  @apply flex items-center gap-2 text-slate-300 transition-colors duration-200 underline;
+}
