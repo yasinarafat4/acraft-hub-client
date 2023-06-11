@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { FaRegTrashAlt, FaUser } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
@@ -8,6 +9,48 @@ const ManageUsers = () => {
     return response.json();
   });
   console.log(users);
+
+  // Make Admin handler
+  const handleMakeAdmin = (user) => {
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-right",
+            icon: "success",
+            title: `${user.name} is an Admin Now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+  // Make Instructor handler
+  const handleMakeInstructor = (user) => {
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-right",
+            icon: "success",
+            title: `${user.name} is an Instructor Now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+
   return (
     <div>
       <div className="xl:w-full xl:mx-auto mx-4">
@@ -38,22 +81,30 @@ const ManageUsers = () => {
                   <td>{user.email}</td>
 
                   <td className="text-center">
-                    <button
-                      // onClick={() => handleDelete(user)}
-                      className=" p-2 text-white bg-slate-600 border-none rounded"
-                    >
-                      {" "}
-                      <FaUser />
-                    </button>
+                    {user.role === "instructor" ? (
+                      <p className="text-[#133795] font-bold">Instructor</p>
+                    ) : (
+                      <button
+                        onClick={() => handleMakeInstructor(user)}
+                        className=" p-2 text-white bg-slate-600 border-none rounded"
+                      >
+                        {" "}
+                        <FaUser />
+                      </button>
+                    )}
                   </td>
                   <td className="text-center">
-                    <button
-                      // onClick={() => handleDelete(user)}
-                      className=" p-2 text-white bg-[#133795]  border-none rounded"
-                    >
-                      {" "}
-                      <FaUser />
-                    </button>
+                    {user.role === "admin" ? (
+                      <p className="text-green-600 font-bold">Admin</p>
+                    ) : (
+                      <button
+                        onClick={() => handleMakeAdmin(user)}
+                        className=" p-2 text-white bg-[#133795]  border-none rounded"
+                      >
+                        {" "}
+                        <FaUser />
+                      </button>
+                    )}
                   </td>
                   <td className="text-center">
                     <button
