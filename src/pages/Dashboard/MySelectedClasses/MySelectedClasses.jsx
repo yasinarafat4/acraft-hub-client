@@ -36,7 +36,7 @@ const MySelectedClasses = () => {
       <Helmet>
         <title>ACraft | Selected Classes</title>
       </Helmet>
-      <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold md:py-4 xl:my-5 mt-10 xl:mt-14 text-center">
+      <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold md:py-4 xl:my-5 mt-10 mb-3 xl:mt-14 text-center">
         My Selected Classes
       </h2>
       <div className="overflow-x-auto">
@@ -78,10 +78,7 @@ const MySelectedClasses = () => {
                   </button>
                 </td>
                 <td>
-                  <button
-                    onClick={() => handleDelete(cls)}
-                    className=" p-2 text-white bg-[#133795] border-none rounded"
-                  >
+                  <button className=" p-2 text-white bg-[#133795] border-none rounded">
                     {" "}
                     <FaRegCreditCard />
                   </button>

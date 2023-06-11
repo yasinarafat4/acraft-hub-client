@@ -50,6 +50,7 @@ const Navbar = () => {
       </li>
       {user && (
         <li title="Dashboard">
+          {/* TODO: Have to make dynamic */}
           <Link to="/dashboard/mySelectedClasses">Dashboard</Link>
         </li>
       )}
