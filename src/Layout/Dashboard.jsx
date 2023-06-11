@@ -1,20 +1,32 @@
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import dashLogo from "../assets/logo/Acraft_hub.png";
 import { BiSelectMultiple } from "react-icons/bi";
-import { FaUserCheck, FaHome, FaUsers } from "react-icons/fa";
+import {
+  FaUserCheck,
+  FaHome,
+  FaUsers,
+  FaChalkboardTeacher,
+} from "react-icons/fa";
 import { GiWallet, GiTeacher } from "react-icons/gi";
 import { SiGoogleclassroom } from "react-icons/si";
 import { FiSettings } from "react-icons/fi";
+import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { Helmet } from "react-helmet-async";
+// import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
+// import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
-  // TODO
-  const isAdmin = true;
-
   const location = useLocation();
+  // const { user } = useAuth();
   const isNavLinkActive = (path) => {
     return location.pathname === path ? "activeDash" : "defaultDash";
   };
+  // TODO
+  const isAdmin = false;
+  // const isInstructor = false;
+  // const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <div>
@@ -36,6 +48,7 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu px-4 w-80 h-full bg-slate-600 text-white space-y-3">
             {/* Dynamic Dashboard Menu starts here */}
+
             {isAdmin ? (
               <>
                 {/* Admin's dashboard starts */}
@@ -66,6 +79,38 @@ const Dashboard = () => {
                   <li className="text-sm md:text-lg">Manage Users</li>
                 </NavLink>
                 {/* Admin's dashboard ends */}
+              </>
+            ) : isInstructor ? (
+              <>
+                {/* Instructor's dashboard starts */}
+                <Link to="/">
+                  <div className="flex flex-col mb-6 text-center">
+                    <img
+                      className="h-22 w-28 lg:h-28 lg:w-32 xl:h-28 xl:w-36 mx-auto"
+                      src={dashLogo}
+                      alt=""
+                    />
+                    <p className="text-xl md:text-2xl tracking-[4px] font-bold mt-2">
+                      Instructor Dashboard
+                    </p>
+                  </div>
+                </Link>
+                {/* Dynamic Dashboard Menu here */}
+                <NavLink
+                  to="/dashboard/addClass"
+                  className={isNavLinkActive("/dashboard/addClass")}
+                >
+                  <AiOutlineAppstoreAdd className="text-xl md:text-2xl text-white" />
+                  <li className="text-sm md:text-lg"> Add a Class</li>
+                </NavLink>
+                <NavLink
+                  to="/dashboard/myClasses"
+                  className={isNavLinkActive("/dashboard/myClasses")}
+                >
+                  <FaChalkboardTeacher className="text-xl md:text-2xl text-white" />
+                  <li className="text-sm md:text-lg">My Classes</li>
+                </NavLink>
+                {/* Instructors's dashboard ends */}
               </>
             ) : (
               <>
@@ -143,3 +188,111 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+// {isAdmin && (
+//   <>
+//     {/* Admin's dashboard starts */}
+//     <Link to="/">
+//       <div className="flex flex-col mb-6 text-center">
+//         <img
+//           className="h-22 w-28 lg:h-28 lg:w-32 xl:h-28 xl:w-36 mx-auto"
+//           src={dashLogo}
+//           alt=""
+//         />
+//         <p className="text-xl md:text-2xl tracking-[4px] font-bold mt-2">
+//           Admin Dashboard
+//         </p>
+//       </div>
+//     </Link>
+//     <NavLink
+//       to="/dashboard/manageClasses"
+//       className={isNavLinkActive("/dashboard/manageClasses")}
+//     >
+//       <FiSettings className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg"> Manage Classes</li>
+//     </NavLink>
+//     <NavLink
+//       to="/dashboard/manageUsers"
+//       className={isNavLinkActive("/dashboard/manageUsers")}
+//     >
+//       <FaUsers className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg">Manage Users</li>
+//     </NavLink>
+//     {/* Admin's dashboard ends */}
+//   </>
+// )}
+
+// {isInstructor && (
+//   <>
+//     {/* Instructor's dashboard starts */}
+//     <Link to="/">
+//       <div className="flex flex-col mb-6 text-center">
+//         <img
+//           className="h-22 w-28 lg:h-28 lg:w-32 xl:h-28 xl:w-36 mx-auto"
+//           src={dashLogo}
+//           alt=""
+//         />
+//         <p className="text-xl md:text-2xl tracking-[4px] font-bold mt-2">
+//           Instructor Dashboard
+//         </p>
+//       </div>
+//     </Link>
+//     {/* Dynamic Dashboard Menu here */}
+//     <NavLink
+//       to="/dashboard/addClass"
+//       className={isNavLinkActive("/dashboard/addClass")}
+//     >
+//       <AiOutlineAppstoreAdd className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg"> Add a Class</li>
+//     </NavLink>
+//     <NavLink
+//       to="/dashboard/myClasses"
+//       className={isNavLinkActive("/dashboard/myClasses")}
+//     >
+//       <FaChalkboardTeacher className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg">My Classes</li>
+//     </NavLink>
+//     {/* Instructors's dashboard ends */}
+//   </>
+// )}
+
+// {user && (
+//   <>
+//     {/* Users's dashboard starts */}
+//     <Link to="/">
+//       <div className="flex flex-col mb-6 text-center">
+//         <img
+//           className="h-22 w-28 lg:h-28 lg:w-32 xl:h-28 xl:w-36 mx-auto"
+//           src={dashLogo}
+//           alt=""
+//         />
+//         <p className="text-xl md:text-2xl tracking-[4px] font-bold mt-2">
+//           Student Dashboard
+//         </p>
+//       </div>
+//     </Link>
+//     {/* Dynamic Dashboard Menu here */}
+//     <NavLink
+//       to="/dashboard/mySelectedClasses"
+//       className={isNavLinkActive("/dashboard/mySelectedClasses")}
+//     >
+//       <BiSelectMultiple className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg"> My Selected Classes</li>
+//     </NavLink>
+//     <NavLink
+//       to="/dashboard/myEnrolledClasses"
+//       className={isNavLinkActive("/dashboard/myEnrolledClasses")}
+//     >
+//       <FaUserCheck className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg">My Enrolled Classes</li>
+//     </NavLink>
+//     <NavLink
+//       to="/dashboard/paymentHistory"
+//       className={isNavLinkActive("/dashboard/paymentHistory")}
+//     >
+//       <GiWallet className="text-xl md:text-2xl text-white" />
+//       <li className="text-sm md:text-lg">Payment History</li>
+//     </NavLink>
+//     {/* User's dashboard ends */}
+//   </>
+// )}
