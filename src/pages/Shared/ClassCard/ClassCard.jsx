@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
+import Spinner from "../Spinner/Spinner";
 
 const ClassCard = ({ cls }) => {
   const { _id, image, name, instructor, availableSeats, students, price } = cls;
@@ -58,8 +59,12 @@ const ClassCard = ({ cls }) => {
   };
 
   // TODO: select button will disabled if Available seats are 0
-  const [isAdmin] = useAdmin();
-  const [isInstructor] = useInstructor();
+  const [isAdmin, adminLoading] = useAdmin();
+  const [isInstructor, instructorLoading] = useInstructor();
+
+  if (adminLoading || instructorLoading) {
+    return <Spinner></Spinner>;
+  }
 
   return (
     <Slide duration={1500}>
