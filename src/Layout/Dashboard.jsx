@@ -12,7 +12,7 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { FiSettings } from "react-icons/fi";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { Helmet } from "react-helmet-async";
-// import useAdmin from "../hooks/useAdmin";
+import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 // import useAuth from "../hooks/useAuth";
 
@@ -23,9 +23,9 @@ const Dashboard = () => {
     return location.pathname === path ? "activeDash" : "defaultDash";
   };
   // TODO
-  const isAdmin = false;
+  // const isAdmin = false;
   // const isInstructor = false;
-  // const [isAdmin] = useAdmin();
+  const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
   return (

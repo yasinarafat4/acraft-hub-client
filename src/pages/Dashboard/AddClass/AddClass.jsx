@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 
+const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
+
 const AddClass = () => {
   const { user } = useAuth();
   const {
@@ -9,11 +11,34 @@ const AddClass = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
+  // console.log(img_hosting_url);
 
   const onSubmit = (data) => {
     console.log(data);
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+          const { name, email, availableSeats, instructor, price } = data;
+          const newClass = {
+            name,
+            price: parseFloat(price),
+            email,
+            availableSeats,
+            instructor,
+            image: imgURL,
+          };
+          console.log(newClass);
+        }
+      });
   };
-
   return (
     <div>
       <Helmet>
@@ -31,10 +56,15 @@ const AddClass = () => {
             </label>
             <input
               type="text"
-              placeholder="Type here"
+              placeholder="Class Name"
               {...register("name", { required: true, maxLength: 120 })}
               className="input input-bordered w-full"
             />
+            {errors.name && (
+              <span className="text-red-500">
+                You must give class name here
+              </span>
+            )}
           </div>
           <div className="form-control  w-full">
             <label className="label">
@@ -45,7 +75,7 @@ const AddClass = () => {
               readOnly
               defaultValue={user?.displayName}
               className="w-full px-4 py-2 border border-gray-300 rounded bg-gray-100"
-              {...register("instructorName", { required: true })}
+              {...register("instructor", { required: true })}
             />
           </div>
         </div>
@@ -58,7 +88,7 @@ const AddClass = () => {
             readOnly
             defaultValue={user?.email}
             className="w-full px-4 py-2 border border-gray-300 rounded bg-gray-100"
-            {...register("instructorEmail", { required: true })}
+            {...register("email", { required: true })}
           />
         </div>
 
@@ -72,6 +102,11 @@ const AddClass = () => {
               className="file-input file-input-bordered w-full max-w-xs"
               {...register("image", { required: true })}
             />
+            {errors.image && (
+              <span className="text-red-500">
+                You must choose an image file here
+              </span>
+            )}
           </div>
           <div className="form-control w-full">
             <label className="label">
@@ -83,6 +118,9 @@ const AddClass = () => {
               {...register("price", { required: true })}
               className="input input-bordered w-full"
             />
+            {errors.price && (
+              <span className="text-red-500">You must give price</span>
+            )}
           </div>
         </div>
         <div className="form-control w-full">
@@ -92,14 +130,19 @@ const AddClass = () => {
           <input
             type="number"
             placeholder="Available Seats"
-            {...register("seats", { required: true })}
+            {...register("availableSeats", { required: true })}
             className="input input-bordered w-full"
           />
+          {errors.availableSeats && (
+            <span className="text-red-500">
+              You must give available seats here
+            </span>
+          )}
         </div>
         <div className="text-center">
           <button
             type="submit"
-            className="bg-gradient-to-r from-[#133795] via-yellow-700 to-[#f14e4c] px-4 py-2 rounded-md text-white mt-3 w-full"
+            className="bg-gradient-to-r from-[#133795] via-yellow-700 to-[#f14e4c] px-4 py-2 rounded-md text-white mt-3 lg:mb-4 w-full"
           >
             <span className="mr-2">Add Class</span>
           </button>
