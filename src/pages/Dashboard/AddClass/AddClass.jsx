@@ -1,15 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AddClass = () => {
   const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
   // console.log(img_hosting_url);
@@ -26,16 +30,25 @@ const AddClass = () => {
       .then((imgResponse) => {
         if (imgResponse.success) {
           const imgURL = imgResponse.data.display_url;
-          const { name, email, availableSeats, instructor, price } = data;
+          const { name, email, availableSeats, instructor, price, students } =
+            data;
           const newClass = {
             name,
-            price: parseFloat(price),
-            email,
-            availableSeats,
-            instructor,
             image: imgURL,
+            instructor,
+            email,
+            availableSeats: parseFloat(availableSeats),
+            price: parseFloat(price),
+            students: parseFloat(students),
           };
           console.log(newClass);
+          axiosSecure.post("/classes", newClass).then((data) => {
+            console.log("After posting new class", data.data);
+            if (data.data.insertedId) {
+              reset();
+              Swal.fire("Good job!", "Item added successfully!", "success");
+            }
+          });
         }
       });
   };
@@ -123,21 +136,35 @@ const AddClass = () => {
             )}
           </div>
         </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text font-semibold">Available Seats*</span>
-          </label>
-          <input
-            type="number"
-            placeholder="Available Seats"
-            {...register("availableSeats", { required: true })}
-            className="input input-bordered w-full"
-          />
-          {errors.availableSeats && (
-            <span className="text-red-500">
-              You must give available seats here
-            </span>
-          )}
+        <div className="md:flex gap-4">
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text font-semibold">Available Seats*</span>
+            </label>
+            <input
+              type="number"
+              placeholder="Available Seats"
+              {...register("availableSeats", { required: true })}
+              className="input input-bordered w-full"
+            />
+            {errors.availableSeats && (
+              <span className="text-red-500">
+                You must give available seats here
+              </span>
+            )}
+          </div>
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text font-semibold">Students</span>
+            </label>
+            <input
+              type="number"
+              defaultValue="0"
+              placeholder="Students"
+              {...register("students", { required: true })}
+              className="input input-bordered w-full"
+            />
+          </div>
         </div>
         <div className="text-center">
           <button
