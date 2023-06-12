@@ -36,7 +36,7 @@ const MySelectedClasses = () => {
       <Helmet>
         <title>ACraft | Selected Classes</title>
       </Helmet>
-      <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold md:py-4 xl:my-5 mt-10 mb-3 xl:mt-14 text-center">
+      <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold md:py-4 xl:my-5 mb-3 text-center">
         My Selected Classes
       </h2>
       <div className="overflow-x-auto">
@@ -45,8 +45,8 @@ const MySelectedClasses = () => {
           <thead>
             <tr className="uppercase">
               <th className="bg-slate-600 text-white">#</th>
-              <th className="bg-slate-600 text-white">Item Image</th>
-              <th className="bg-slate-600 text-white">Item Name</th>
+              <th className="bg-slate-600 text-white">Class Image</th>
+              <th className="bg-slate-600 text-white">Image Name</th>
               <th className="bg-slate-600 text-white">Price</th>
               <th className="bg-slate-600 text-white">Delete</th>
               <th className="bg-slate-600 text-white">Pay</th>
