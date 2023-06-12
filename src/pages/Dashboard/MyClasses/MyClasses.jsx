@@ -1,9 +1,37 @@
 import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyClasses = () => {
-  const [classes] = useClasses();
+  const [classes, refetch] = useClasses();
+
+  const handleDelete = (cls) => {
+    console.log(cls);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/selectedClasses/${cls._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Class has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
+
   console.log(classes);
   return (
     <div>
@@ -52,7 +80,7 @@ const MyClasses = () => {
                 </td>
                 <td>
                   <button
-                    // onClick={() => handleDelete(cls)}
+                    onClick={() => handleDelete(cls)}
                     className="text-center p-2 text-white bg-[#f14e4c] border-none rounded"
                   >
                     {" "}

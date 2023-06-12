@@ -46,7 +46,7 @@ const AddClass = () => {
             console.log("After posting new class", data.data);
             if (data.data.insertedId) {
               reset();
-              Swal.fire("Good job!", "Item added successfully!", "success");
+              Swal.fire("Good job!", "Class added successfully!", "success");
             }
           });
         }

@@ -1,9 +1,33 @@
 import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageClasses = () => {
-  const [classes] = useClasses();
-  console.log(classes);
+  const [classes, , refetch] = useClasses();
+  const [axiosSecure] = useAxiosSecure();
+  const handleDeny = (cls) => {
+    console.log(cls);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/classes/${cls._id}`).then((res) => {
+          console.log("deleted res", res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire("Deleted!", "Menu has been deleted.", "success");
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <Helmet>
@@ -58,7 +82,7 @@ const ManageClasses = () => {
                 </td>
                 <td>
                   <button
-                    // onClick={() => handleDelete(cls)}
+                    onClick={() => handleDeny(cls)}
                     className="text-center p-2 text-white bg-[#f14e4c] border-none rounded"
                   >
                     {" "}
