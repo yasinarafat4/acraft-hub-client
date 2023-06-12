@@ -7,6 +7,8 @@ import { FaMoon } from "react-icons/fa";
 import { BsSun } from "react-icons/bs";
 import { BiSelectMultiple } from "react-icons/bi";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,6 +16,8 @@ const Navbar = () => {
   const [theme, setTheme] = useState("light");
   const [selectedClasses] = useSelectedClasses();
   const location = useLocation();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   // Dark Or Light Mood effect
   useEffect(() => {
@@ -61,7 +65,15 @@ const Navbar = () => {
         <Link to="/classes">Classes</Link>
       </li>
       <li>
-        <Link to="/dashboard/mySelectedClasses">
+        <Link
+          to={
+            isAdmin
+              ? "/dashboard/manageClasses"
+              : isInstructor
+              ? "dashboard/myClasses"
+              : "/dashboard/mySelectedClasses"
+          }
+        >
           <button className="btn btn-sm">
             <BiSelectMultiple className="text-2xl text-green-600" />
             <div className="badge badge-primary">

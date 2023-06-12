@@ -3,6 +3,8 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const ClassCard = ({ cls }) => {
   const { _id, image, name, instructor, availableSeats, students, price } = cls;
@@ -55,9 +57,9 @@ const ClassCard = ({ cls }) => {
     }
   };
 
-  // TODO: select button will disabled if Available seats are 0 and Logged in as admin/instructor
-  // const isUserLoggedIn = user && user.email;
-  // const isSelectButtonDisabled = !isUserLoggedIn;
+  // TODO: select button will disabled if Available seats are 0
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <Slide duration={1500}>
@@ -85,7 +87,7 @@ const ClassCard = ({ cls }) => {
           <button
             onClick={() => handleSelectClass(cls)}
             className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            // disabled={isSelectButtonDisabled}
+            disabled={isAdmin || isInstructor}
           >
             Select
           </button>
