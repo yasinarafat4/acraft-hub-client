@@ -11,7 +11,7 @@ This is a React-based summer camp (Arts & crafts) school website that allows stu
 - In the Dashboard, it is private for different role (Student, Admin, and Instructor). Both have different Dashboard.
 - In Student Dashboard, implemented Payment Gateway system.
 - Firebase authentication with Google, email & password.
-- Register and Login page.
+- Register and Login page with react-hook-form.
 - Logout functionality.
 - Implemented JWT, TanStack Query and AXIOS.
 - 404 and Spinner page.
@@ -19,7 +19,7 @@ This is a React-based summer camp (Arts & crafts) school website that allows stu
 
 ## Live Link
 
-- Hosted in firebase -> [ACraft]()
+- Hosted in firebase -> [ACraft Hub]()
 
 ## Resources & Credits
 
@@ -43,4 +43,12 @@ This is a React-based summer camp (Arts & crafts) school website that allows stu
 
 - Icons -> [React Icons](https://react-icons.github.io/react-icons/)
 
-- Loading Spinner [React Spinner](https://www.npmjs.com/package/react-spinners)
+- Loading Spinner -> [React Spinner](https://www.npmjs.com/package/react-spinners)
+
+- React Query -> [TanStack Query](https://tanstack.com/query/latest)
+
+- JWT -> [JSON Web Token](https://jwt.io/) & [GitHub Repo](https://github.com/auth0/node-jsonwebtoken)
+
+- HTTP Client -> [AXIOS](https://axios-http.com/docs/intro)
+
+- Payment-Gateway(Stripe) -> [Website](https://stripe.com/docs/stripe-js/react) & [GitHub Repo](https://github.com/stripe/react-stripe-js)
