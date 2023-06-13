@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import { FaRegTrashAlt, FaRegCreditCard } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MySelectedClasses = () => {
   const [selectedClass, refetch] = useSelectedClasses();
@@ -79,13 +80,15 @@ const MySelectedClasses = () => {
                   </button>
                 </td>
                 <td>
-                  <button
-                    title="Pay to Enroll"
-                    className=" p-2 text-white bg-[#133795] border-none rounded"
-                  >
-                    {" "}
-                    <FaRegCreditCard />
-                  </button>
+                  <Link to="/dashboard/payment">
+                    <button
+                      title="Pay to Enroll"
+                      className=" p-2 text-white bg-[#133795] border-none rounded"
+                    >
+                      {" "}
+                      <FaRegCreditCard />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}
