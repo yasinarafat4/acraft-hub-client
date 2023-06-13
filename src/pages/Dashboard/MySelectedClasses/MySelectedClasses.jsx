@@ -67,9 +67,10 @@ const MySelectedClasses = () => {
                   </div>
                 </td>
                 <td>{cls.name}</td>
-                <td className="text-end">${cls.price}</td>
+                <td className="text-start">${cls.price}</td>
                 <td>
                   <button
+                    title="Delete Class"
                     onClick={() => handleDelete(cls)}
                     className=" p-2 text-white bg-[#f14e4c] border-none rounded"
                   >
@@ -78,7 +79,10 @@ const MySelectedClasses = () => {
                   </button>
                 </td>
                 <td>
-                  <button className=" p-2 text-white bg-[#133795] border-none rounded">
+                  <button
+                    title="Pay to Enroll"
+                    className=" p-2 text-white bg-[#133795] border-none rounded"
+                  >
                     {" "}
                     <FaRegCreditCard />
                   </button>

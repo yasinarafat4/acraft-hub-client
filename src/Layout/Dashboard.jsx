@@ -41,7 +41,7 @@ const Dashboard = () => {
             htmlFor="my-drawer-2"
             className="btn btn-xs drawer-button lg:hidden my-4"
           >
-            Open
+            Open Dashboard
           </label>
         </div>
         <div className="drawer-side">

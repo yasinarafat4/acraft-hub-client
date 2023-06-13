@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 const PopularClasses = () => {
   const [classes] = useClasses();
-  const popularClasses = classes.slice(0, 6);
+  const approvedClasses = classes.filter((cls) => cls.status === "approve");
+
+  const popularClasses = approvedClasses.slice(0, 6);
 
   return (
     <div>

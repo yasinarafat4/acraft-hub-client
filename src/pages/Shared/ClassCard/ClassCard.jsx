@@ -5,7 +5,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
-import Spinner from "../Spinner/Spinner";
 
 const ClassCard = ({ cls }) => {
   const { _id, image, name, instructor, availableSeats, students, price } = cls;
@@ -44,7 +43,7 @@ const ClassCard = ({ cls }) => {
         });
     } else {
       Swal.fire({
-        title: "Please login",
+        title: "Please login as Student",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -59,16 +58,16 @@ const ClassCard = ({ cls }) => {
   };
 
   // TODO: select button will disabled if Available seats are 0
-  const [isAdmin, adminLoading] = useAdmin();
-  const [isInstructor, instructorLoading] = useInstructor();
-
-  if (adminLoading || instructorLoading) {
-    return <Spinner></Spinner>;
-  }
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <Slide duration={1500}>
-      <div className="max-w-md mx-auto rounded overflow-hidden shadow-lg">
+      <div
+        className={`max-w-md mx-auto rounded overflow-hidden shadow-lg ${
+          availableSeats === 0 ? "bg-red-600 text-white" : ""
+        }`}
+      >
         <img
           className="w-full h-auto object-cover"
           src={image}
@@ -76,15 +75,27 @@ const ClassCard = ({ cls }) => {
         />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{name}</div>
-          <p className="text-gray-700 text-base mb-2 dark:text-white">
+          <p
+            className={`text-gray-700 text-base mb-2 dark:text-white ${
+              availableSeats === 0 ? " text-white" : ""
+            }`}
+          >
             <span className="font-semibold dark:text-white">Instructor:</span>{" "}
             {instructor}
           </p>
-          <p className="text-gray-700 text-base mb-2 dark:text-white">
+          <p
+            className={`text-gray-700 text-base mb-2 dark:text-white ${
+              availableSeats === 0 ? " text-white" : ""
+            }`}
+          >
             <span className="font-semibold">Available Seats:</span>{" "}
             {availableSeats}
           </p>
-          <p className="text-gray-700 text-base dark:text-white">
+          <p
+            className={`text-gray-700 text-base mb-2 dark:text-white ${
+              availableSeats === 0 ? " text-white" : ""
+            }`}
+          >
             <span className="font-semibold">Students:</span> {students}
           </p>
         </div>
@@ -92,7 +103,7 @@ const ClassCard = ({ cls }) => {
           <button
             onClick={() => handleSelectClass(cls)}
             className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            disabled={isAdmin || isInstructor}
+            disabled={isAdmin || isInstructor || availableSeats === 0}
           >
             Select
           </button>

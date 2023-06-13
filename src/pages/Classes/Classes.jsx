@@ -7,6 +7,9 @@ import ClassCard from "../Shared/ClassCard/ClassCard";
 const Classes = () => {
   const [classes] = useClasses();
 
+  // Filter classes with "approve" status
+  const approvedClasses = classes.filter((cls) => cls.status === "approve");
+
   return (
     <div>
       <Helmet>
@@ -18,7 +21,7 @@ const Classes = () => {
         text={"Would you like to see our Classes?"}
       ></Cover>
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 mx-6 my-6">
-        {classes.map((cls) => (
+        {approvedClasses.map((cls) => (
           <ClassCard key={cls._id} cls={cls} />
         ))}
       </div>

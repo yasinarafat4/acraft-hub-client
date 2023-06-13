@@ -7,6 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const MyClasses = () => {
   const [classes, , refetch] = useClasses();
   const [axiosSecure] = useAxiosSecure();
+  console.log(classes);
   const handleDelete = (cls) => {
     console.log(cls);
     Swal.fire({
@@ -71,13 +72,29 @@ const MyClasses = () => {
                 <td className="text-center">${cls.price}</td>
                 <td className="text-center">{cls.students}</td>
                 <td>
-                  <button className="p-2 text-white bg-[#133795] border-none rounded">
-                    {" "}
-                    Pending
-                  </button>
+                  {cls.status === "approve" ? (
+                    <button
+                      title="Approved by an Admin"
+                      className="p-2 text-white bg-[#2ebd5d] border-none rounded"
+                    >
+                      Approved
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() =>
+                        Swal.fire("Error", "Only admin can approve it", "error")
+                      }
+                      title="Only Admin can Approve it"
+                      className="p-2 text-white bg-[#133795] border-none rounded"
+                    >
+                      {" "}
+                      Pending
+                    </button>
+                  )}
                 </td>
                 <td>
                   <button
+                    title="Delete Class"
                     onClick={() => handleDelete(cls)}
                     className="text-center p-2 text-white bg-[#f14e4c] border-none rounded"
                   >

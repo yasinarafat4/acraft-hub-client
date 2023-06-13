@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const ManageClasses = () => {
   const [classes, , refetch] = useClasses();
   const [axiosSecure] = useAxiosSecure();
+
   const handleDeny = (cls) => {
     console.log(cls);
     Swal.fire({
@@ -28,6 +29,38 @@ const ManageClasses = () => {
       }
     });
   };
+
+  // Class Approve handler
+  const handleClassApprove = (cls) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, approve it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/classes/${cls._id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ status: "approve" }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+              refetch();
+              Swal.fire("Approved!", "Class has been Approved.", "success");
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <Helmet>
@@ -72,13 +105,20 @@ const ManageClasses = () => {
                 <td className="text-center">${cls.price}</td>
                 <td className="text-center">{cls.availableSeats}</td>
                 <td>
-                  <button
-                    title="Click here to Approve"
-                    className="p-2 text-white bg-[#133795] border-none rounded"
-                  >
-                    {" "}
-                    Pending
-                  </button>
+                  {cls.status === "approve" ? (
+                    <button className="p-2 text-white bg-[#2ebd5d] border-none rounded">
+                      Approved
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleClassApprove(cls)}
+                      title="Click here to Approve"
+                      className="p-2 text-white bg-[#133795] border-none rounded"
+                    >
+                      {" "}
+                      Pending
+                    </button>
+                  )}
                 </td>
                 <td>
                   <button
