@@ -2,10 +2,11 @@ import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MyClasses = () => {
-  const [classes, refetch] = useClasses();
-
+  const [classes, , refetch] = useClasses();
+  const [axiosSecure] = useAxiosSecure();
   const handleDelete = (cls) => {
     console.log(cls);
     Swal.fire({
@@ -18,16 +19,13 @@ const MyClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/selectedClasses/${cls._id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              refetch();
-              Swal.fire("Deleted!", "Class has been deleted.", "success");
-            }
-          });
+        axiosSecure.delete(`/classes/${cls._id}`).then((res) => {
+          console.log("deleted res", res.data);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire("Deleted!", "Class has been deleted.", "success");
+          }
+        });
       }
     });
   };

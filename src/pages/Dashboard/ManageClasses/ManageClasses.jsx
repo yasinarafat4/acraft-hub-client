@@ -22,7 +22,7 @@ const ManageClasses = () => {
           console.log("deleted res", res.data);
           if (res.data.deletedCount > 0) {
             refetch();
-            Swal.fire("Deleted!", "Menu has been deleted.", "success");
+            Swal.fire("Deleted!", "Class has been deleted.", "success");
           }
         });
       }
