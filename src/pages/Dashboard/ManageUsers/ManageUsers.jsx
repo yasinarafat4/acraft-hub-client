@@ -2,13 +2,41 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { FaRegTrashAlt, FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const response = await fetch("http://localhost:5000/users");
-    return response.json();
+    const response = await axiosSecure.get("/users");
+    return response.data;
   });
-  console.log(users);
+
+  // Delete user handler
+  const handleDeleteUser = (user) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("deleted data", data);
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "User has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
 
   // Make Admin handler
   const handleMakeAdmin = (user) => {
@@ -108,7 +136,7 @@ const ManageUsers = () => {
                   </td>
                   <td className="text-center">
                     <button
-                      // onClick={() => handleDelete(user)}
+                      onClick={() => handleDeleteUser(user)}
                       className=" p-2 text-white bg-[#f14e4c] border-none rounded"
                     >
                       {" "}

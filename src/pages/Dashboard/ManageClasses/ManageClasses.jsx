@@ -15,14 +15,14 @@ const ManageClasses = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, deny it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/classes/${cls._id}`).then((res) => {
           console.log("deleted res", res.data);
           if (res.data.deletedCount > 0) {
             refetch();
-            Swal.fire("Deleted!", "Class has been deleted.", "success");
+            Swal.fire("Denied!", "Class has been denied.", "success");
           }
         });
       }
