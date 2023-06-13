@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
@@ -51,6 +51,7 @@ const MyClasses = () => {
               <th className="bg-slate-600 text-white">Price</th>
               <th className="bg-slate-600 text-white">Enrolled Students</th>
               <th className="bg-slate-600 text-white">Status</th>
+              <th className="bg-slate-600 text-white">Update</th>
               <th className="bg-slate-600 text-white">Delete</th>
             </tr>
           </thead>
@@ -92,11 +93,27 @@ const MyClasses = () => {
                     </button>
                   )}
                 </td>
-                <td>
+                <td className="text-center">
+                  <button
+                    onClick={() =>
+                      Swal.fire(
+                        "TODO:",
+                        "Due to short time, update functionality not applied. Since it is optional, will applied future.",
+                        "error"
+                      )
+                    }
+                    title="Update classes"
+                    className="p-2 text-white bg-slate-600 border-none rounded"
+                  >
+                    {" "}
+                    <FaEdit />
+                  </button>
+                </td>
+                <td className="text-center">
                   <button
                     title="Delete Class"
                     onClick={() => handleDelete(cls)}
-                    className="text-center p-2 text-white bg-[#f14e4c] border-none rounded"
+                    className="p-2 text-white bg-[#f14e4c] border-none rounded"
                   >
                     {" "}
                     <FaRegTrashAlt />
