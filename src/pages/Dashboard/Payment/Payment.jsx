@@ -8,15 +8,18 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payment = () => {
   const [selectedClass] = useSelectedClasses();
-  const price = selectedClass.map((item) => item.price);
-  console.log(price);
+  //   const specificPrice = selectedClass.find(
+  //     (item) => item.price === "specificPriceValueNotAppear"
+  //   );
+  //   console.log(specificPrice);
+
   return (
     <div>
       <Helmet>
         <title>ACraft | Payment</title>
       </Helmet>
       <Elements stripe={stripePromise}>
-        <CheckoutForm price={price}></CheckoutForm>
+        <CheckoutForm selectedClass={selectedClass}></CheckoutForm>
       </Elements>
     </div>
   );

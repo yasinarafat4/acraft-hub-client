@@ -1,10 +1,23 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ price }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  const [clientSecret, setClientSecret] = useState("");
+
+  useEffect(() => {
+    axiosSecure.post("/create-payment-intent", { price }).then((res) => {
+      console.log(res.data.clientSecret);
+      setClientSecret(res.data.clientSecret);
+    });
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,6 +42,21 @@ const CheckoutForm = () => {
       toast.success("Payment Successful");
       console.log("Payment Method", paymentMethod);
     }
+
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            email: user?.email || "unknown",
+            name: user?.displayName || "anonymous",
+          },
+        },
+      });
+    if (confirmError) {
+      console.log(confirmError);
+    }
+    console.log(paymentIntent);
   };
 
   const cardElementOptions = {
@@ -77,7 +105,11 @@ const CheckoutForm = () => {
         <div style={{ marginBottom: "10px" }}>
           <CardElement options={cardElementOptions} />
         </div>
-        <button type="submit" disabled={!stripe} style={buttonStyle}>
+        <button
+          type="submit"
+          disabled={!stripe || !clientSecret}
+          style={buttonStyle}
+        >
           Pay
         </button>
         <ToastContainer />
