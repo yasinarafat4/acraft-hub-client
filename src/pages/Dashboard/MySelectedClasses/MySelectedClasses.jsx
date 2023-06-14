@@ -47,7 +47,7 @@ const MySelectedClasses = () => {
             <tr className="uppercase">
               <th className="bg-slate-600 text-white">#</th>
               <th className="bg-slate-600 text-white">Class Image</th>
-              <th className="bg-slate-600 text-white">Image Name</th>
+              <th className="bg-slate-600 text-white">Class Name</th>
               <th className="bg-slate-600 text-white">Price</th>
               <th className="bg-slate-600 text-white">Delete</th>
               <th className="bg-slate-600 text-white">Pay</th>

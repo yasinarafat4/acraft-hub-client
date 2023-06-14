@@ -62,7 +62,7 @@ const CheckoutForm = ({ selectedClass }) => {
 
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
-      const paymentHistory = {
+      const paymentData = {
         className: name,
         email: user?.email,
         transactionId: paymentIntent.id,
@@ -70,11 +70,12 @@ const CheckoutForm = ({ selectedClass }) => {
         date: new Date(),
         singleClassId: _id,
         classId: classId,
+        paid: true,
       };
-      axiosSecure.post("/payments", paymentHistory).then((res) => {
+      axiosSecure.post("/payments", paymentData).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          // Swal
+          //
         }
       });
     }
@@ -102,17 +103,6 @@ const CheckoutForm = ({ selectedClass }) => {
     margin: "20px",
   };
 
-  const buttonStyle = {
-    backgroundColor: "#4CAF50",
-    color: "#ffffff",
-    border: "none",
-    borderRadius: "4px",
-    padding: "5px 20px",
-    fontSize: "16px",
-    cursor: "pointer",
-    marginTop: "10px",
-  };
-
   return (
     <>
       <h2 className="text-center font-bold text-2xl mb-4 mt-10">
@@ -129,7 +119,7 @@ const CheckoutForm = ({ selectedClass }) => {
         <button
           type="submit"
           disabled={!stripe || !clientSecret || processing}
-          style={buttonStyle}
+          className="btn btn-success btn-sm mt-4"
         >
           Pay
         </button>
