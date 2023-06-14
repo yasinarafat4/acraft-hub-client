@@ -28,7 +28,6 @@ const ManageUsers = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("deleted data", data);
             if (data.deletedCount > 0) {
               refetch();
               Swal.fire("Deleted!", "User has been deleted.", "success");
@@ -45,7 +44,6 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
@@ -65,7 +63,6 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           refetch();
           Swal.fire({

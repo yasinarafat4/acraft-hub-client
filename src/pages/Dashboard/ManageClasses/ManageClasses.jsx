@@ -10,7 +10,6 @@ const ManageClasses = () => {
 
   // Delete handler
   const handleDelete = (cls) => {
-    console.log(cls);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -22,7 +21,6 @@ const ManageClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/classes/${cls._id}`).then((res) => {
-          console.log("deleted res", res.data);
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire("Deleted!", "Class has been deleted.", "success");
@@ -53,7 +51,6 @@ const ManageClasses = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.modifiedCount > 0) {
               refetch();
               Swal.fire("Approved!", "Class has been Approved.", "success");

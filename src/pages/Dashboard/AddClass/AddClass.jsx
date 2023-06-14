@@ -16,10 +16,8 @@ const AddClass = () => {
     reset,
   } = useForm();
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
-  // console.log(img_hosting_url);
 
   const onSubmit = (data) => {
-    console.log(data);
     const formData = new FormData();
     formData.append("image", data.image[0]);
     fetch(img_hosting_url, {
@@ -41,9 +39,7 @@ const AddClass = () => {
             price: parseFloat(price),
             students: parseFloat(students),
           };
-          console.log(newClass);
           axiosSecure.post("/classes", newClass).then((data) => {
-            console.log("After posting new class", data.data);
             if (data.data.insertedId) {
               reset();
               Swal.fire("Good job!", "Class added successfully!", "success");

@@ -8,7 +8,6 @@ const useInstructors = () => {
     fetch("https://acraft-hub-server.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setInstructors(data);
         setLoading(false);
       });

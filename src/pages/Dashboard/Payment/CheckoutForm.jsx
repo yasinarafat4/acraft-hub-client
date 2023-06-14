@@ -6,9 +6,8 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 
 const CheckoutForm = ({ selectedClass }) => {
-  console.log(selectedClass);
   const { price, name, classId, _id, image } = selectedClass;
-  console.log(price);
+
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -18,7 +17,6 @@ const CheckoutForm = ({ selectedClass }) => {
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-      console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret);
     });
   }, [price, axiosSecure]);
@@ -74,7 +72,6 @@ const CheckoutForm = ({ selectedClass }) => {
         paid: true,
       };
       axiosSecure.post("/payments", paymentData).then((res) => {
-        console.log(res.data);
         if (res.data.insertedId) {
           //
         }

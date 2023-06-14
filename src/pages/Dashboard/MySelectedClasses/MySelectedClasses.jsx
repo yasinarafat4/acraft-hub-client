@@ -8,7 +8,6 @@ const MySelectedClasses = () => {
   const [selectedClass, refetch] = useSelectedClasses();
 
   const handleDelete = (cls) => {
-    console.log(cls);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

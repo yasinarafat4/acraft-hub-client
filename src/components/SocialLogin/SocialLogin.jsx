@@ -14,7 +14,6 @@ const SocialLogin = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
 
         const saveUser = { name: user.displayName, email: user.email };
         fetch("https://acraft-hub-server.vercel.app/users", {

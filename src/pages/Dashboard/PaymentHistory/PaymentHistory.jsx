@@ -4,7 +4,6 @@ import moment from "moment";
 
 const PaymentHistory = () => {
   const [paymentHistory, setPaymentHistory] = useState([]);
-  console.log(paymentHistory);
   useEffect(() => {
     fetch("https://acraft-hub-server.vercel.app/payments")
       .then((res) => res.json())

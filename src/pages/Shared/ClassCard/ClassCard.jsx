@@ -57,7 +57,6 @@ const ClassCard = ({ cls }) => {
     }
   };
 
-  // TODO: select button will disabled if Available seats are 0
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 

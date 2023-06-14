@@ -7,9 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const MyClasses = () => {
   const [classes, , refetch] = useClasses();
   const [axiosSecure] = useAxiosSecure();
-  console.log(classes);
   const handleDelete = (cls) => {
-    console.log(cls);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -21,7 +19,6 @@ const MyClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/classes/${cls._id}`).then((res) => {
-          console.log("deleted res", res.data);
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire("Deleted!", "Class has been deleted.", "success");
@@ -31,7 +28,6 @@ const MyClasses = () => {
     });
   };
 
-  console.log(classes);
   return (
     <div>
       <Helmet>
