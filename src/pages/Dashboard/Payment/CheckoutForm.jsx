@@ -7,7 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 
 const CheckoutForm = ({ selectedClass }) => {
   console.log(selectedClass);
-  const { price, name, classId, _id } = selectedClass;
+  const { price, name, classId, _id, image } = selectedClass;
   console.log(price);
   const stripe = useStripe();
   const elements = useElements();
@@ -64,6 +64,7 @@ const CheckoutForm = ({ selectedClass }) => {
     if (paymentIntent.status === "succeeded") {
       const paymentData = {
         className: name,
+        image: image,
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
