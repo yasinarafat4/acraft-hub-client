@@ -78,8 +78,10 @@ export const router = createBrowserRouter([
         element: <PaymentHistory></PaymentHistory>,
       },
       {
-        path: "/dashboard/payment",
+        path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/selectedClasses/${params.id}`),
       },
 
       // Admin Routes

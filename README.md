@@ -19,7 +19,12 @@ This is a React-based summer camp (Arts & crafts) school website that allows stu
 
 ## Live Link
 
+<!-- TODO: Website Live Link Here -->
+
 - Hosted in firebase -> [ACraft Hub]()
+
+- Admin Email -> acraft@gmail.com
+- Admin Password -> aCraft111@
 
 ## Resources & Credits
 

@@ -80,7 +80,7 @@ const MySelectedClasses = () => {
                   </button>
                 </td>
                 <td>
-                  <Link to="/dashboard/payment">
+                  <Link to={`/dashboard/payment/${cls._id}`}>
                     <button
                       title="Pay to Enroll"
                       className=" p-2 text-white bg-[#133795] border-none rounded"
