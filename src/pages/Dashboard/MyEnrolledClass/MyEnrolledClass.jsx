@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -14,7 +15,7 @@ const MyEnrolledClass = () => {
 
   return (
     <div>
-      <div className="w-11/12 overflow-y-auto">
+      <div className="w-full overflow-y-auto">
         <Helmet>
           <title>ACraft | Enrolled Classes</title>
         </Helmet>
@@ -30,6 +31,7 @@ const MyEnrolledClass = () => {
                 <th className="bg-slate-600 text-white">Class Image</th>
                 <th className="bg-slate-600 text-white">Class Name</th>
                 <th className="bg-slate-600 text-white">Price</th>
+                <th className="bg-slate-600 text-white">Enrolled Date</th>
               </tr>
             </thead>
             <tbody>
@@ -46,8 +48,12 @@ const MyEnrolledClass = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{cls.name}</td>
+                  <td>{cls.className}</td>
                   <td className="text-start">${cls.price}</td>
+                  <td className="text-start">
+                    {" "}
+                    {moment(history.date).format("MMMM Do, YYYY h:mm:ss A")}
+                  </td>
                 </tr>
               ))}
             </tbody>
