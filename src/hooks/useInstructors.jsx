@@ -5,7 +5,7 @@ const useInstructors = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://acraft-hub-server.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

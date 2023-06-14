@@ -27,7 +27,7 @@ const ClassCard = ({ cls }) => {
         price,
         email: user.email,
       };
-      fetch("http://localhost:5000/selectedClasses", {
+      fetch("https://acraft-hub-server.vercel.app/selectedClasses", {
         method: "POST",
         headers: {
           "content-type": "application/json",

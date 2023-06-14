@@ -17,7 +17,7 @@ const SocialLogin = () => {
         console.log(user);
 
         const saveUser = { name: user.displayName, email: user.email };
-        fetch("http://localhost:5000/users", {
+        fetch("https://acraft-hub-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

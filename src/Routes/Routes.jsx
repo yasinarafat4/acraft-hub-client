@@ -81,7 +81,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/selectedClasses/${params.id}`),
+          fetch(
+            `https://acraft-hub-server.vercel.app/selectedClasses/${params.id}`
+          ),
       },
 
       // Admin Routes

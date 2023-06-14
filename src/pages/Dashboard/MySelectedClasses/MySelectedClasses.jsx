@@ -19,9 +19,12 @@ const MySelectedClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/selectedClasses/${cls._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://acraft-hub-server.vercel.app/selectedClasses/${cls._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

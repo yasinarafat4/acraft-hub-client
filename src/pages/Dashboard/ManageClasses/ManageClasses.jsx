@@ -42,7 +42,7 @@ const ManageClasses = () => {
       confirmButtonText: "Yes, approve it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/classes/${cls._id}`, {
+        fetch(`https://acraft-hub-server.vercel.app/classes/${cls._id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

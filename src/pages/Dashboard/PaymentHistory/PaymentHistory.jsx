@@ -6,7 +6,7 @@ const PaymentHistory = () => {
   const [paymentHistory, setPaymentHistory] = useState([]);
   console.log(paymentHistory);
   useEffect(() => {
-    fetch("http://localhost:5000/payments")
+    fetch("https://acraft-hub-server.vercel.app/payments")
       .then((res) => res.json())
       .then((data) => {
         setPaymentHistory(data);

@@ -15,7 +15,7 @@ const useSelectedClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const response = await fetch(
-        `http://localhost:5000/selectedClasses?email=${user?.email}`,
+        `https://acraft-hub-server.vercel.app/selectedClasses?email=${user?.email}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
