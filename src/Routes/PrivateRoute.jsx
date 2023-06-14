@@ -1,9 +1,14 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Spinner from "../pages/Shared/Spinner/Spinner";
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const location = useLocation();
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
 
   if (user) {
     return children;

@@ -2,12 +2,14 @@ import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const ManageClasses = () => {
   const [classes, , refetch] = useClasses();
   const [axiosSecure] = useAxiosSecure();
 
-  const handleDeny = (cls) => {
+  // Delete handler
+  const handleDelete = (cls) => {
     console.log(cls);
     Swal.fire({
       title: "Are you sure?",
@@ -16,14 +18,14 @@ const ManageClasses = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, deny it!",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/classes/${cls._id}`).then((res) => {
           console.log("deleted res", res.data);
           if (res.data.deletedCount > 0) {
             refetch();
-            Swal.fire("Denied!", "Class has been denied.", "success");
+            Swal.fire("Deleted!", "Class has been deleted.", "success");
           }
         });
       }
@@ -83,6 +85,7 @@ const ManageClasses = () => {
               <th className="bg-slate-600 text-white">Available seats</th>
               <th className="bg-slate-600 text-white">Status</th>
               <th className="bg-slate-600 text-white">Status</th>
+              <th className="bg-slate-600 text-white">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -122,11 +125,20 @@ const ManageClasses = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDeny(cls)}
+                    onClick={() => window.my_modal_3.showModal()}
                     className="text-center p-2 text-white bg-[#f14e4c] border-none rounded"
                   >
                     {" "}
                     Deny
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(cls)}
+                    className="text-center p-2 text-white bg-[#f14e4c] border-none rounded"
+                  >
+                    {" "}
+                    <FaRegTrashAlt />
                   </button>
                 </td>
               </tr>
@@ -134,6 +146,30 @@ const ManageClasses = () => {
           </tbody>
         </table>
       </div>
+
+      {/* TODO: Functionality not applied */}
+      {/* Modal */}
+      <dialog id="my_modal_3" className="modal">
+        <form method="dialog" className="modal-box">
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-0 top-0">
+            ✕
+          </button>
+          <div>
+            <textarea
+              className="w-full h-32 px-3 py-2 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="Enter your feedback"
+            ></textarea>
+          </div>
+          <div className="mt-4">
+            <button
+              type="submit"
+              className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+            >
+              Send Feedback
+            </button>
+          </div>
+        </form>
+      </dialog>
     </div>
   );
 };

@@ -52,6 +52,8 @@ This is a React-based summer camp (Arts & crafts) school website that allows stu
 
 - React Query -> [TanStack Query](https://tanstack.com/query/latest)
 
+- Modal -> [React Modal](https://www.npmjs.com/package/react-modal)
+
 - JWT -> [JSON Web Token](https://jwt.io/) & [GitHub Repo](https://github.com/auth0/node-jsonwebtoken)
 
 - HTTP Client -> [AXIOS](https://axios-http.com/docs/intro)
