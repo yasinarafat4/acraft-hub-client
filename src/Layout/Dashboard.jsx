@@ -14,17 +14,12 @@ import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { Helmet } from "react-helmet-async";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-// import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
   const location = useLocation();
-  // const { user } = useAuth();
   const isNavLinkActive = (path) => {
     return location.pathname === path ? "activeDash" : "defaultDash";
   };
-  // TODO
-  // const isAdmin = false;
-  // const isInstructor = false;
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
@@ -48,7 +43,6 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu px-4 w-80 h-full bg-slate-600 text-white space-y-3">
             {/* Dynamic Dashboard Menu starts here */}
-
             {isAdmin ? (
               <>
                 {/* Admin's dashboard starts */}

@@ -3,14 +3,9 @@ import useInstructors from "../../hooks/useInstructors";
 import Cover from "../Shared/Cover/Cover";
 import InstructorCard from "../Shared/InstructorCard/InstructorCard";
 import instructorsCover from "../../assets/images/cover/instructors-cover.png";
-import Spinner from "../Shared/Spinner/Spinner";
 
 const Instructors = () => {
-  const [instructors, loading] = useInstructors();
-
-  if (loading) {
-    return <Spinner></Spinner>;
-  }
+  const [instructors] = useInstructors();
 
   return (
     <div>
