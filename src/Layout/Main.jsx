@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "../pages/Shared/Navbar/Navbar";
-import Footer from "../pages/Shared/Footer/Footer";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../pages/Shared/Footer/Footer";
+import Navbar from "../pages/Shared/Navbar/Navbar";
 import Spinner from "../pages/Shared/Spinner/Spinner";
 
 const Main = () => {
@@ -17,11 +17,11 @@ const Main = () => {
   }
   return (
     <div className="bg-white dark:bg-slate-700 dark:text-white">
-      <Navbar></Navbar>
+      <Navbar />
       <div className="min-h-[calc(100vh-300px)]">
-        <Outlet></Outlet>
+        <Outlet />
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

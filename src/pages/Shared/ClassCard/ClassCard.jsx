@@ -63,7 +63,7 @@ const ClassCard = ({ cls }) => {
   return (
     <Slide duration={1500}>
       <div
-        className={`max-w-md mx-auto rounded overflow-hidden shadow-lg ${
+        className={`w-full ml-4 lg:ml-0 lg:max-w-md mx-auto rounded overflow-hidden shadow-lg ${
           availableSeats === 0 ? "bg-red-600 text-white" : ""
         }`}
       >

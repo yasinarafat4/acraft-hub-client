@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { BsSun } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../../assets/logo/Acraft_hub.png";
 import { AuthContext } from "../../../providers/AuthProvider";
 import "./Navbar.css";
 
@@ -60,8 +59,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed z-10 w-full  bg-opacity-30 bg-black text-white ">
-      <div className="navbar-start md:ps-2">
+    <div className="navbar fixed z-10 bg-opacity-30 max-w-full md:max-w-screen-xl bg-black text-white">
+      <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className=" lg:hidden cursor-pointer">
             <svg
@@ -87,7 +86,20 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <img className="h-16 md:h-32" src={logo} alt="" />
+          <div className="flex flex-col ml-2">
+            <p
+              className="text-lg md:text-xl tracking-[2px] md:tracking-[3px]"
+              style={{ fontFamily: "Cinzel, serif" }}
+            >
+              ACraftHub
+            </p>
+            <h2
+              className="text-xl md:text-2xl font-bold tracking-[3px]"
+              style={{ fontFamily: "Cinzel, serif" }}
+            >
+              SCHOOL
+            </h2>
+          </div>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
