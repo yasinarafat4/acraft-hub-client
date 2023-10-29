@@ -123,7 +123,10 @@ const Navbar = () => {
         {/*  Logout Button */}
         {user ? (
           <>
-            <button class="py-1 px-2 xl:px-3 text-white bg-red-500 rounded-md transition duration-300 hover:bg-red-600">
+            <button
+              onClick={handleLogOut}
+              class="py-1 px-2 xl:px-3 text-white bg-red-500 rounded-md transition duration-300 hover:bg-red-600"
+            >
               Logout
             </button>
 
