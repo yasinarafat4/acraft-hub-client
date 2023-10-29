@@ -3,7 +3,7 @@ import { Zoom } from "react-awesome-reveal";
 const InstructorCard = ({ instructor }) => {
   return (
     <Zoom duration={1500} triggerOnce>
-      <div className="w-full ml-4 lg:ml-0 lg:max-w-md mx-auto rounded overflow-hidden shadow-lg">
+      <div className="w-11/12 ml-4 lg:ml-0 lg:max-w-md mx-auto rounded overflow-hidden shadow-lg">
         <img
           className="w-full h-auto object-cover"
           src={instructor.image}

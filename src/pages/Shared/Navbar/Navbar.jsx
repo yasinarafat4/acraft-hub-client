@@ -80,7 +80,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content space-y-4 p-2 shadow bg-opacity-70 bg-black text-xl text-white rounded-box w-52"
+            className="menu menu-compact dropdown-content space-y-4 p-2 shadow bg-opacity-70 bg-black text-base text-white rounded-box w-52"
           >
             {navItems}
           </ul>
@@ -102,13 +102,13 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1  font-bold gap-2 lg:text-lg xl:text-2xl">
-          {navItems}
-        </ul>
-      </div>
-      <div className="navbar-end flex gap-1 md:gap-2 font-[600] text-sm xl:text-lg items-center">
-        <div className="cursor-pointer">
+      <div className="navbar-end flex gap-1 font-[400] text-sm xl:text-lg items-center">
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal xl:px-1 font-semibold lg:gap-1 xl:gap-2 lg:text-[13px] xl:text-[15px]">
+            {navItems}
+          </ul>
+        </div>
+        <div className="cursor-pointer xl:mr-2">
           {isDarkMode ? (
             <div className="text-xl" onClick={handleThemeSwitch}>
               <BsSun title="Make Light" />
@@ -123,13 +123,10 @@ const Navbar = () => {
         {/*  Logout Button */}
         {user ? (
           <>
-            <button
-              title="Logout"
-              onClick={handleLogOut}
-              className="btn-logout"
-            >
-              Log Out
+            <button class="py-1 px-2 xl:px-3 text-white bg-red-500 rounded-md transition duration-300 hover:bg-red-600">
+              Logout
             </button>
+
             {user && (
               <img
                 className="rounded-full"
@@ -137,7 +134,7 @@ const Navbar = () => {
                 style={{
                   width: "40px",
                   height: "40px",
-                  margin: "10px",
+                  margin: "5px",
                   border: "2px solid gray",
                 }}
                 src={user.photoURL || "https://picsum.photos/200/300"}
