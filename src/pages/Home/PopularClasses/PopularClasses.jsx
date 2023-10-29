@@ -15,7 +15,7 @@ const PopularClasses = () => {
       <SectionTitle heading={"Popular Classes"} text={"Unlock the vibrant realm of artistic expression with our most popular art classes. Immerse yourself in a captivating journey of colors, techniques, and boundless creativity, guided by our talented instructors who inspire and empower your artistic growth."} />
 
       {/* Classes */}
-      <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 my-4">
+      <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 my-4 lg:ms-6">
         {popularClasses.map((cls) => (
           <ClassCard key={cls._id} cls={cls} />
         ))}
