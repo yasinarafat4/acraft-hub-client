@@ -1,10 +1,10 @@
 import { Slide } from "react-awesome-reveal";
-import useAuth from "../../../hooks/useAuth";
-import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import useSelectedClasses from "../../../hooks/useSelectedClasses";
+import Swal from "sweetalert2";
 import useAdmin from "../../../hooks/useAdmin";
+import useAuth from "../../../hooks/useAuth";
 import useInstructor from "../../../hooks/useInstructor";
+import useSelectedClasses from "../../../hooks/useSelectedClasses";
 
 const ClassCard = ({ cls }) => {
   const { _id, image, name, instructor, availableSeats, students, price } = cls;

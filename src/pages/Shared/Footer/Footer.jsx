@@ -3,20 +3,20 @@ import logo from "../../../assets/logo/Acraft_hub.png";
 
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaTwitter,
 } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = moment().format("YYYY");
   return (
     <footer>
-      <div className="footer p-10 bg-base-200 text-base-content">
+      <div className="footer p-10 bg-base-200 text-base-content dark:bg-slate-700 dark:text-white">
         <div className="space-y-2">
           <div>
             <img className="h-32 mb-3 md:mb-0 lg:mb-3" src={logo} alt="" />
-            <p className="ms-2 text-base md:hidden lg:block">
+            <p className="ms-2 text-base hidden lg:block">
               ArtCraft has been bringing creative peoples dreams to life since
               2016. We teach digital <br />
               art, 2D and 3D graphics, and animation to beginners from square
@@ -58,42 +58,44 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div>
-          <span className="footer-title text-lg">Services</span>
-          <a className="link link-hover">Custom Artwork</a>
-          <a className="link link-hover">Craft Supplies</a>
-          <a className="link link-hover">Art Classes</a>
-          <a className="link link-hover">Commissioned Pieces</a>
-        </div>
-        <div>
-          <span className="footer-title text-lg">Features</span>
-          <a className="link link-hover">Artistic Inspiration</a>
-          <a className="link link-hover">Crafting Techniques</a>
-          <a className="link link-hover">DIY Projects</a>
-          <a className="link link-hover">Art Exhibitions</a>
-        </div>
-        <div>
-          <span className="footer-title text-lg">Address</span>
+        <nav>
+          <header className="footer-title">Services</header>
+          <a className="link link-hover">Branding</a>
+          <a className="link link-hover">Design</a>
+          <a className="link link-hover">Marketing</a>
+          <a className="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+          <header className="footer-title">Company</header>
+          <a className="link link-hover">About us</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover">Press kit</a>
+        </nav>
+        <form>
+          <header className="footer-title">Address</header>
           <p>123 Main Street, Dhaka, Bangladesh</p>
           <p>Phone: (123) 456-7890</p>
-          <div className="form-control w-80">
+          <fieldset className="form-control w-80">
             <label className="label">
-              <span className="label-text">Enter your email address</span>
+              <span className="label-text dark:text-white">
+                Enter your email address
+              </span>
             </label>
             <div className="relative">
               <input
                 type="text"
-                placeholder="Your Email"
-                className="input input-bordered w-full pr-16"
+                placeholder="username@site.com"
+                className="input input-bordered w-7/12 md:w-full pr-16"
               />
-              <button className="btn bg-[#133795] hover:bg-[#1a5bbe] text-white absolute top-0 right-0 rounded-l-none">
+              <button className="btn bg-[#133795] hover:bg-[#1a5bbe] text-white absolute top-0 right-12 md:right-0 rounded-l-none">
                 Subscribe
               </button>
             </div>
-          </div>
-        </div>
+          </fieldset>
+        </form>
       </div>
-      <div className="footer footer-center p-4 bg-base-300 text-base-content">
+      <div className="footer footer-center p-4 bg-base-300 text-base-content dark:bg-slate-800 dark:text-white">
         <div>
           <p>Copyright © {currentYear} - All right reserved by ACraft</p>
         </div>

@@ -1,10 +1,10 @@
+import { useContext, useEffect, useState } from "react";
+import { BsSun } from "react-icons/bs";
+import { FaMoon } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/logo/Acraft_hub.png";
-import "./Navbar.css";
-import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaMoon } from "react-icons/fa";
-import { BsSun } from "react-icons/bs";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -60,7 +60,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white ">
+    <div className="navbar fixed z-10 w-full  bg-opacity-30 bg-black text-white ">
       <div className="navbar-start md:ps-2">
         <div className="dropdown">
           <label tabIndex={0} className=" lg:hidden cursor-pointer">

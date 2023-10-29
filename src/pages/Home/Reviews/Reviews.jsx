@@ -1,4 +1,5 @@
 import { Fade } from "react-awesome-reveal";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Reviews = () => {
   const reviews = [
@@ -31,12 +32,13 @@ const Reviews = () => {
   return (
     <Fade duration={1500}>
       <div className="xl:mx-10">
-        <h2 className="text-xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold mt-10 xl:mt-14 mx-6">
-          WHAT PEOPLE SAYING ABOUT US:
-        </h2>
-        <p className="text-xs md:text-sm lg:text-lg xl:text-xl mx-6 mb-4 lg:mb-10">
-          Join our huge creative ACraft family today!
-        </p>
+        {/* Section Title */}
+        <SectionTitle
+          heading={"What People Saying About Us:"}
+          text={"Join our huge creative ACraft family today!"}
+        />
+
+        {/* Review container */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-center">
           {reviews.map((review) => (
             <div key={review.id} className="max-w-2xl mx-auto overflow-hidden">
