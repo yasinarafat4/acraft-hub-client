@@ -8,7 +8,7 @@ const Reviews = () => {
       imageSrc: "https://i.ibb.co/4psHVp6/user-1.png",
       name: "Adam Smith",
       opinion:
-        "ACraft isn't only learning from zero to any level you want, but the family of like-minded people who will always support you, help you, answer any (stupid) questions, motivate you and inspire you to exploit and all that just to share knowledge with you. You guys are fantastic! I thank our mentor for the inspiration and gift of teaching, the leaders for the excellent organization of the course and an extraordinary sensitivity!",
+        "ACraft is fantastic! I thank our mentor for the inspiration and gift of teaching.",
       rating: 5,
     },
     {
@@ -16,7 +16,7 @@ const Reviews = () => {
       imageSrc: "https://i.ibb.co/DKdqMdP/user-2.png",
       name: "Lucia Johnson",
       opinion:
-        "Passed the 'Digital drawing' course. Very satisfied with the course. I had never drawn on a tablet before and it didn't work very well on paper, and now I can create art in a digital space. The atmosphere and teaching methods of ACraft were such that at the end of the course we didn't want to leave. Many thanks to our teacher and curator. As if all the teachers were like in this school, even those ones, who had firmly decided that learning is not for them, would have studied.",
+        "Very satisfied with the course. Now I can create art in a digital space.",
       rating: 4,
     },
     {
@@ -24,7 +24,7 @@ const Reviews = () => {
       imageSrc: "https://i.ibb.co/bPNcSvk/user-3.png",
       name: "David Brown",
       opinion:
-        "I am extremely grateful to the ACraft school for all the valuable knowledge I acquired during the courses ('Digital Design' and 'Character Design'), for the unreal pumping of skills, for a regular entry into the field of digital design, for a support for administrators and a positive and friendly atmosphere where I wanted to study and grow more every day. The teachers are good professionals and inspirers ! Thanks ACraft! ❤️",
+        "Extremely grateful for the valuable knowledge and positive atmosphere. Thanks ACraft! ❤️",
       rating: 5,
     },
   ];

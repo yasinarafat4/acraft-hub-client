@@ -20,7 +20,7 @@ const Classes = () => {
         title={"All Classes"}
         text={"Would you like to see our Classes?"}
       ></Cover>
-      <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 my-4 mr-8 lg:mx-4">
+      <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 my-4 lg:mx-4">
         {approvedClasses.map((cls) => (
           <ClassCard key={cls._id} cls={cls} />
         ))}

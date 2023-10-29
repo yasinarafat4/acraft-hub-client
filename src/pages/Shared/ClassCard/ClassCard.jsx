@@ -1,4 +1,4 @@
-import { Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAdmin from "../../../hooks/useAdmin";
@@ -61,7 +61,7 @@ const ClassCard = ({ cls }) => {
   const [isInstructor] = useInstructor();
 
   return (
-    <Slide duration={1500}>
+    <Fade duration={1500}>
       <div
         className={`w-11/12 ml-4 lg:ml-0 lg:max-w-md mx-auto rounded overflow-hidden shadow-lg ${
           availableSeats === 0 ? "bg-red-600 text-white" : ""
@@ -111,7 +111,7 @@ const ClassCard = ({ cls }) => {
           </p>
         </div>
       </div>
-    </Slide>
+    </Fade>
   );
 };
 
