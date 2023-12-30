@@ -34,7 +34,7 @@ const Reviews = () => {
       <div className="xl:mx-10">
         {/* Section Title */}
         <SectionTitle
-          heading={"What People Saying About Us:"}
+          heading={"What People are Saying"}
           text={"Join our huge creative ACraft family today!"}
         />
 
