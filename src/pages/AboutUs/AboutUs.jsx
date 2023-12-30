@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import aboutCover from "../../assets/images/cover/classes-cover.png";
+import aboutCover from "../../assets/images/cover/about-cover.jpg";
 import Cover from "../Shared/Cover/Cover";
 
 const AboutUs = () => {
@@ -12,7 +12,7 @@ const AboutUs = () => {
       <Cover
         bgImg={aboutCover}
         title={"About Us"}
-        text={"Would you like to see?"}
+        text={"Meet ACraftHub: Our Vision, Your Solution!"}
       ></Cover>
     </div>
   );
