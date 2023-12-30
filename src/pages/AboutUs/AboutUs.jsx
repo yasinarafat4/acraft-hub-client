@@ -12,7 +12,7 @@ const AboutUs = () => {
       <Cover
         bgImg={aboutCover}
         title={"About Us"}
-        text={"Would you like to see about us?"}
+        text={"Would you like to see?"}
       ></Cover>
     </div>
   );
