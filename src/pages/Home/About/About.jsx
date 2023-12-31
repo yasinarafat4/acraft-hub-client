@@ -14,7 +14,7 @@ const About = () => {
           data-aos-duration="2000"
         >
           <img
-            src="https://i.ibb.co/L8mVQSM/about-us.png"
+            src="https://i.ibb.co/QPygSXv/about-us.jpg"
             alt="About Us"
             className="mx-auto md:mx-0 rounded-lg"
           />
@@ -27,11 +27,10 @@ const About = () => {
           </h2>
           <p className="mb-4">
             Welcome to ACraft Hub, where creativity meets education! We are a
-            React-based summer camp dedicated to fostering artistic expression
-            and learning through the captivating world of arts and crafts. At
-            ACraft Hub, we provide a dynamic platform for students to enroll and
-            immerse themselves in a variety of enriching extra-curricular
-            activities.{" "}
+            summer camp school dedicated to fostering artistic expression and learning
+            through the captivating world of arts and crafts. At ACraft Hub, we
+            provide a dynamic platform for students to enroll and immerse
+            themselves in a variety of enriching extra-curricular activities.{" "}
           </p>
           <p className="mb-4">
             Our team is passionate about nurturing talent, fostering a love for
@@ -41,7 +40,7 @@ const About = () => {
             unforgettable adventure in self-discovery and artistic exploration.
           </p>
           <Link to="/about">
-            <button className="flex items-center justify-center gap-1 text-indigo-800 border-[2px] md:border-[3px] border-indigo-800 hover:bg-indigo-800 hover:text-white hover:border-indigo-800 rounded px-3 py-1 duration-500 text-sm md:text-lg font-semibold">
+            <button className="flex items-center justify-center gap-1 text-indigo-800 border border-indigo-800 hover:bg-indigo-800 hover:text-white hover:border-indigo-800 rounded px-3 py-2 duration-500 text-sm font-semibold">
               More About Us <BsArrowUpRight className="mt-1" />
             </button>
           </Link>
