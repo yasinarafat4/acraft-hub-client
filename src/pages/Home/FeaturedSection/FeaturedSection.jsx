@@ -13,9 +13,9 @@ const FeaturedSection = () => {
   }, []);
 
   return (
-    <div className="featured-item bg-fixed bg-cover text-white py-36 md:py-40 lg:py-52 xl:py-64 mt-12 ">
+    <div className="featured-item bg-fixed bg-cover text-white py-24 md:py-36 lg:py-40 xl:py-52 mt-12 ">
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl">
+        <h2 className="text-xl md:text-2xl lg:text-4xl xl:text-5xl">
           BECOME ONE OF US!
         </h2>
         <p className="text-xs md:text-sm lg:text-xl my-3">

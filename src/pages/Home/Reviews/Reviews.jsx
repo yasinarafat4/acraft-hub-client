@@ -31,7 +31,7 @@ const Reviews = () => {
 
   return (
     <Fade duration={1500}>
-      <div className="xl:mx-10">
+      <div>
         {/* Section Title */}
         <SectionTitle
           heading={"What People are Saying"}
@@ -41,7 +41,7 @@ const Reviews = () => {
         {/* Review container */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-center">
           {reviews.map((review) => (
-            <div key={review.id} className="max-w-2xl mx-auto overflow-hidden">
+            <div key={review.id} className="max-w-2xl mx-auto md:m-4 overflow-hidden shadow-md">
               <img
                 src={review.imageSrc}
                 alt="User"
