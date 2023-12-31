@@ -8,6 +8,18 @@
   </head>
   <body className="dark">
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Email JS Scripts -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("EZqoPl1QBq6NL4AbD");
+      })();
+    </script>
   </body>
 </html>
