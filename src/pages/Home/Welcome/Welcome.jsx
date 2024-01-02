@@ -1,6 +1,33 @@
 import React from "react";
 
 const Welcome = () => {
+  const facilitiesData = [
+    {
+      id: 1,
+      image: "https://i.ibb.co/ysqF456/teacher-icon.png",
+      title: "Awesome Teachers",
+      text: "Meet our exceptional educators dedicated to inspiring and guiding students.",
+    },
+    {
+      id: 2,
+      image: "https://i.ibb.co/WcGgV4m/certificate-icon.png",
+      title: "Global Certificate",
+      text: "Achieve excellence with our globally recognized certification program.",
+    },
+    {
+      id: 3,
+      image: "https://i.ibb.co/G3kwCP9/class-icon.png",
+      title: "Best Classes",
+      text: "Experience top-notch learning environments with our best-in-class courses.",
+    },
+    {
+      id: 4,
+      image: "https://i.ibb.co/5K6GW1f/support-icon.png",
+      title: "Student Support ",
+      text: "Our commitment goes beyond classes. Receive unparalleled support for your journey.",
+    },
+  ];
+  
   return (
     <div>
       {/* title */}
