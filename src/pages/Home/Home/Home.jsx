@@ -6,6 +6,7 @@ import FeaturedSection from "../FeaturedSection/FeaturedSection";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import Reviews from "../Reviews/Reviews";
+import Welcome from "../Welcome/Welcome";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <title>ACraft | Home</title>
       </Helmet>
       <Banner />
+      <Welcome />
       <PopularClasses />
       <PopularInstructors />
       <About />
