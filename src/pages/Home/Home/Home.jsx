@@ -5,6 +5,7 @@ import Contact from "../Contact/Contact";
 import FeaturedSection from "../FeaturedSection/FeaturedSection";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import RecentNews from "../RecentNews/RecentNews";
 import Reviews from "../Reviews/Reviews";
 import Welcome from "../Welcome/Welcome";
 
@@ -21,6 +22,7 @@ const Home = () => {
       <About />
       <Contact />
       <Reviews />
+      <RecentNews />
       <FeaturedSection />
     </div>
   );

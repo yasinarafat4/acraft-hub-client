@@ -105,13 +105,15 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="navbar-end flex gap-1 font-[400] text-sm xl:text-lg items-center">
+      <div className="flex gap-1 font-[400] text-sm xl:text-lg items-center navbar-center">
         <div className="hidden lg:flex">
           <ul className="menu menu-horizontal xl:px-1 font-semibold lg:gap-1 xl:gap-2 lg:text-[13px] xl:text-[15px]">
             {navItems}
           </ul>
         </div>
-        <div className="cursor-pointer xl:mr-2">
+      </div>
+      <div className="navbar-end">
+        <div className="cursor-pointer mr-2">
           {isDarkMode ? (
             <div className="text-xl" onClick={handleThemeSwitch}>
               <BsSun title="Make Light" />

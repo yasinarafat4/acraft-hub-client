@@ -10,7 +10,7 @@ const PopularInstructors = () => {
     <div>
       {/* Section Title */}
       <SectionTitle
-        heading={"Popular Instructors"}
+        heading={"Our Popular Instructors"}
         text={
           "Embark on a transformative artistic journey led by renowned instructors who ignite creativity, nurture talent, and guide you towards achieving artistic mastery. Unlock your boundless creativity through the lessons offered by our trusted experts in the field."
         }
