@@ -56,9 +56,6 @@ const Navbar = () => {
       <li title="Our Classes" className={isNavLinkActive("/classes")}>
         <Link to="/classes">Classes</Link>
       </li>
-      <li title="About Us" className={isNavLinkActive("/about")}>
-        <Link to="/about">About Us</Link>
-      </li>
       <li title="Contact Us" className={isNavLinkActive("/contact")}>
         <Link to="/contact">Contact Us</Link>
       </li>

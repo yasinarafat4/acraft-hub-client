@@ -27,12 +27,12 @@ const Welcome = () => {
       text: "Our commitment goes beyond classes. Receive unparalleled support for your journey.",
     },
   ];
-  
+
   return (
-    <div>
+    <div className="my-4 ms-4 lg:ms-6">
       {/* title */}
       <div className="mt-10 mx-4 lg:mx-0 lg:ms-6 text-center">
-        <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-slate-600 dark:text-slate-300 mb-2">
+        <h2 className="text-3xl lg:text-4xl font-bold text-slate-600 dark:text-slate-300 mb-2">
           Welcome to <span className="text-orange-600">Acraft</span>
           <span className="text-indigo-600">Hub</span>
         </h2>
@@ -42,6 +42,15 @@ const Welcome = () => {
         </p>
       </div>
       {/* Body */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
+        {facilitiesData.map((facility) => (
+          <div key={facility.id}>
+            <img src={facility.image} alt="Facilities Image" />
+            <h2 className="text-lg xl:text-xl font-semibold mt-2">{facility.title}</h2>
+            <p>{facility.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
