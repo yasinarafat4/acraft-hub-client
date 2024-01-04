@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Contact = () => {
   return (
     <div className="px-10 py-10 md:py-14 mx-4 bg-gradient-to-r from-orange-400 to-red-500  dark:bg-gradient-to-r dark:from-slate-800 dark:to-slate-800 text-white text-center rounded-2xl mt-14">
-      <p className="text-slate-700 dark:text-white text-lg">
+      <p className="text-slate-100 dark:text-white text-lg">
         {" "}
-        <b>Call Us:</b> <span className="text-slate-100 text-base">+88 123456789</span>
+        <b>Call Us:</b> <span className="text-slate-200 text-base">+88 123456789</span>
       </p>
-      <p className="text-slate-700 dark:text-white text-lg">
+      <p className="text-slate-100 dark:text-white text-lg">
         {" "}
         <b>Email Us:</b>{" "}
-        <span className="text-slate-100 text-base">acraft@gmail.com</span>
+        <span className="text-slate-200 text-base">acraft@gmail.com</span>
       </p>
       <Link to="/contact">
         <button
