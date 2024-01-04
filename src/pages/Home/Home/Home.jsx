@@ -8,6 +8,7 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import RecentNews from "../RecentNews/RecentNews";
 import Reviews from "../Reviews/Reviews";
 import Welcome from "../Welcome/Welcome";
+import FAQ from "./FAQ/FAQ";
 import Gallery from "./Gallery/Gallery";
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       <Contact />
       <Reviews />
       <RecentNews />
+      <FAQ />
       <FeaturedSection />
     </div>
   );
