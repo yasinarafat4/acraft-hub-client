@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="md:py-16 py-2 px-2 lg:py-4 lg:px-8 dark:bg-slate-900 dark:text-white">
+    <div className="mt-10 md:py-16 py-2 px-2 lg:py-4 lg:px-8 dark:bg-slate-900 dark:text-white">
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         {/* Image*/}
         <div
