@@ -8,6 +8,7 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import RecentNews from "../RecentNews/RecentNews";
 import Reviews from "../Reviews/Reviews";
 import Welcome from "../Welcome/Welcome";
+import Gallery from "./Gallery/Gallery";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Welcome />
       <PopularClasses />
       <PopularInstructors />
+      <Gallery />
       <About />
       <Contact />
       <Reviews />
