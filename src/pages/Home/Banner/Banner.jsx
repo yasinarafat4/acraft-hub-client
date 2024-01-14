@@ -12,7 +12,7 @@ const Banner = () => {
       des: "Explore a collection of beautiful artworks and crafts with us.",
     },
     {
-      img: "https://i.ibb.co/3NjgFVG/banner-2.jpg",
+      img: "https://i.ibb.co/ZxcFNFQ/banner2-183ee3e1.jpg",
       title: "Unleash Your Creativity",
       des: "Discover inspiration and ignite your imagination with our diverse range of art and craft creations.",
     },
